@@ -51,7 +51,7 @@
             touch-action: manipulation;
         }
 
-        /* الحقول الثلاثة مضبوطة بدقة هندسية فوق خطوطها الرسمية تماماً */
+        /* الحقول الثلاثة مضبوطة بدقة هندسية مطابقة تماماً للصورة الرسمية */
         .form-input {
             position: absolute;
             background: transparent;
@@ -108,7 +108,7 @@
         <div class="screen-container">
             <img src="send-form.png" alt="Send Form">
             
-            <!-- حقل رقم الهاتف (مرفوع للأعلى ليطابق السطر الأول تماماً) -->
+            <!-- حقل رقم الهاتف (مثالي ومضبوط تماماً على السطر الأول) -->
             <input type="tel" id="phone-input" class="form-input" 
                    style="top: 24.5%; right: 18%; width: 72%; height: 30px;" 
                    maxlength="8" 
@@ -117,18 +117,18 @@
                    placeholder=""
                    oninput="validatePhone(this)">
 
-            <!-- حقل المبلغ (في السطر الثاني تماماً) -->
+            <!-- حقل المبلغ (مضبوط ليقع تحت كلمة المبلغ وفوق السطر الثاني تماماً) -->
             <input type="tel" id="amount-input" class="form-input" 
-                   style="top: 38.0%; right: 12%; width: 78%; height: 30px;" 
+                   style="top: 41.5%; right: 12%; width: 78%; height: 30px;" 
                    maxlength="7" 
                    inputmode="numeric" 
                    pattern="[0-9]*" 
                    placeholder=""
                    oninput="validateAmount(this)">
 
-            <!-- حقل الملاحظة (في السطر الثالث تماماً) -->
+            <!-- حقل الملاحظة (مضبوط ليقع تحت كلمة ملاحظة وفوق السطر الثالث تماماً) -->
             <input type="text" id="note-input" class="form-input" 
-                   style="top: 51.5%; right: 12%; width: 78%; height: 30px;" 
+                   style="top: 56.5%; right: 12%; width: 78%; height: 30px;" 
                    maxlength="50" 
                    placeholder="">
 
