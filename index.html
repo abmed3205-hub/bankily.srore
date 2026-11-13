@@ -65,11 +65,13 @@
             font-weight: 300; 
         }
 
+        /* النصوص الديناميكية بخلفية بيضاء لتغطية النص القديم وعرض المدخلات بدقة */
         .dynamic-text {
             position: absolute;
             z-index: 95;
-            font-size: 14px;
+            font-size: 15px;
             color: #000000;
+            background: #ffffff;
             direction: ltr;
             text-align: right;
             font-weight: bold;
@@ -125,16 +127,19 @@
         </div>
     </div>
 
-    <!-- 5. شاشة نجاح التحويل (تستعرض صورة confirm.png التي رفعتها وفيها نافذة النقل ناجح) -->
+    <!-- 5. صفحة مراجعة وتأكيد التفاصيل (confirm.png) -->
     <div id="screen-confirm" class="app-screen">
         <div class="screen-container">
-            <img src="confirm.png" alt="Success">
+            <img src="confirm.png" alt="Confirm Review">
             
-            <div id="display-phone" class="dynamic-text" style="top: 50%; right: 35%; width: 30%;"></div>
-            <div id="display-amount" class="dynamic-text" style="top: 50%; right: 65%; width: 25%;"></div>
+            <!-- رقم الهاتف المدخل يظهر تماماً في مكانه الصحيح أعلى الشاشة -->
+            <div id="display-phone" class="dynamic-text" style="top: 17.2%; right: 50%; width: 35%; height: 24px;"></div>
+            
+            <!-- المبلغ المدخل يظهر تماماً في مكانه الصحيح بجوار خانة المبلغ -->
+            <div id="display-amount" class="dynamic-text" style="top: 29.2%; right: 55%; width: 35%; height: 24px;"></div>
 
-            <!-- زر "فعله!" الأزرق في نافذة النجاح للعودة لوحة القيادة -->
-            <div class="hotspot" style="bottom: 22%; left: 15%; width: 70%; height: 50px;" ontouchstart="goToScreen('screen-dashboard', event)" onclick="goToScreen('screen-dashboard', event)"></div>
+            <!-- زر "تم" الأصفر في أسفل صفحة المراجعة للعودة للوحة القيادة -->
+            <div class="hotspot" style="bottom: 15px; left: 5%; width: 90%; height: 55px;" ontouchstart="goToScreen('screen-dashboard', event)" onclick="goToScreen('screen-dashboard', event)"></div>
         </div>
     </div>
 
@@ -166,8 +171,9 @@
                 return;
             }
 
+            // تعبئة البيانات المدخلة لتظهر بدقة في صفحة التأكيد
             document.getElementById('display-phone').innerText = phone;
-            document.getElementById('display-amount').innerText = "MRU " + amount;
+            document.getElementById('display-amount').innerText = amount + " MRU";
 
             goToScreen('screen-confirm');
         }
