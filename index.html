@@ -65,25 +65,13 @@
             font-weight: 300; 
         }
 
-        /* رقم الهاتف بخلفية بيضاء تماماً لأنه في الجزء العلوي الأبيض */
-        .phone-text {
+        /* نصوص دقيقة مطابقة تماماً للدوائر الخضراء وبدون خلفيات متداخلة */
+        .exact-text {
             position: absolute;
             z-index: 95;
-            font-size: 15px;
+            font-size: 16px;
             color: #000000;
-            background: #ffffff;
-            direction: ltr;
-            text-align: right;
-            font-weight: bold;
-        }
-
-        /* المبلغ بخلفية مطابقة للبطاقة الرمادية ليظهر بشكل سلس وطبيعي */
-        .amount-text {
-            position: absolute;
-            z-index: 95;
-            font-size: 15px;
-            color: #000000;
-            background: #f4f5f7;
+            background: transparent;
             direction: ltr;
             text-align: right;
             font-weight: bold;
@@ -144,11 +132,11 @@
         <div class="screen-container">
             <img src="success.png" alt="Confirm Review">
             
-            <!-- رقم الهاتف -->
-            <div id="display-phone" class="phone-text" style="top: 17.2%; right: 38%; width: 30%; height: 24px;"></div>
+            <!-- رقم الهاتف داخل الدائرة الخضراء العليا بدقة -->
+            <div id="display-phone" class="exact-text" style="top: 17.5%; right: 35%; width: 35%; height: 26px;"></div>
             
-            <!-- المبلغ بخلفية متناسقة مع البطادية الرمادية -->
-            <div id="display-amount" class="amount-text" style="top: 29.2%; right: 28%; width: 30%; height: 24px;"></div>
+            <!-- المبلغ داخل الدائرة الخضراء السفلى بدقة -->
+            <div id="display-amount" class="exact-text" style="top: 29.5%; right: 40%; width: 40%; height: 26px;"></div>
 
             <!-- زر "تم" الأصفر في أسفل صفحة المراجعة للعودة للوحة القيادة -->
             <div class="hotspot" style="bottom: 15px; left: 5%; width: 90%; height: 55px;" ontouchstart="goToScreen('screen-dashboard', event)" onclick="goToScreen('screen-dashboard', event)"></div>
