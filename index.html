@@ -51,18 +51,18 @@
             touch-action: manipulation;
         }
 
-        /* الحقول مضبوطة تماماً فوق الخطوط وبحجم خط مطابق للصورة الرسمية */
+        /* الحقول الثلاثة مضبوطة بدقة هندسية فوق خطوطها الرسمية تماماً */
         .form-input {
             position: absolute;
             background: transparent;
             border: none;
             outline: none;
-            font-size: 15px; /* حجم خط صغير ومطابق للصورة الرسمية */
+            font-size: 15px;
             color: #000000;
             direction: ltr;
             text-align: right;
             z-index: 90;
-            font-weight: 500;
+            font-weight: 600;
         }
 
         .dynamic-text {
@@ -108,27 +108,27 @@
         <div class="screen-container">
             <img src="send-form.png" alt="Send Form">
             
-            <!-- حقل رقم الهاتف: 8 أرقام، بجوار أيقونة الدفتر، فوق الخط تماماً -->
+            <!-- حقل رقم الهاتف: في مكانه الأول تماماً بجوار أيقونة الدفتر -->
             <input type="tel" id="phone-input" class="form-input" 
-                   style="top: 29.2%; right: 18%; width: 72%; height: 30px;" 
+                   style="top: 27.2%; right: 18%; width: 72%; height: 28px;" 
                    maxlength="8" 
                    inputmode="numeric" 
                    pattern="[0-9]*" 
                    placeholder=""
                    oninput="validatePhone(this)">
 
-            <!-- حقل المبلغ: بحد أقصى 7 أرقام، فوق السطر الثاني تماماً -->
+            <!-- حقل المبلغ: في مكانه الثاني تماماً فوق السطر الأوسط -->
             <input type="tel" id="amount-input" class="form-input" 
-                   style="top: 42.5%; right: 12%; width: 78%; height: 30px;" 
+                   style="top: 40.5%; right: 12%; width: 78%; height: 28px;" 
                    maxlength="7" 
                    inputmode="numeric" 
                    pattern="[0-9]*" 
                    placeholder=""
                    oninput="validateAmount(this)">
 
-            <!-- حقل الملاحظة: فوق السطر الثالث تماماً -->
+            <!-- حقل الملاحظة: في مكانه الثالث تماماً فوق السطر السفلي -->
             <input type="text" id="note-input" class="form-input" 
-                   style="top: 55.8%; right: 12%; width: 78%; height: 30px;" 
+                   style="top: 53.8%; right: 12%; width: 78%; height: 28px;" 
                    maxlength="50" 
                    placeholder="">
 
