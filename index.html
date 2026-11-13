@@ -59,18 +59,18 @@
             border: none;
             outline: none;
             font-size: 15px;
-            color: #000000;
+            color: #485a6c;
             text-align: right;
             z-index: 90;
             font-weight: 300; 
         }
 
-        /* رقم الهاتف */
+        /* رقم الهاتف: حجم خط أصغر ولون مطابق تماماً للصورة */
         .phone-display {
             position: absolute;
             z-index: 95;
-            font-size: 16px;
-            color: #000000;
+            font-size: 14.5px;
+            color: #485a6c;
             background: #ffffff;
             direction: ltr;
             text-align: right;
@@ -78,12 +78,12 @@
             white-space: nowrap;
         }
 
-        /* المبلغ (تم رفعه قليلاً للأعلى ليطابق التصميم بدقة تامة) */
+        /* المبلغ: تم رفعه للأعلى، حجم خط أصغر، ولون مطابق تماماً للصورة */
         .amount-display {
             position: absolute;
             z-index: 95;
-            font-size: 16px;
-            color: #000000;
+            font-size: 14.5px;
+            color: #485a6c;
             background: #f4f5f7;
             direction: ltr;
             text-align: right;
@@ -149,8 +149,8 @@
             <!-- رقم الهاتف -->
             <div id="display-phone" class="phone-display" style="top: 15.5%; right: 18%; height: 26px;"></div>
             
-            <!-- المبلغ (تم رفعه قليلاً للأعلى) -->
-            <div id="display-amount" class="amount-display" style="top: 26.2%; right: 9%; height: 26px;"></div>
+            <!-- المبلغ (تم رفعه للأعلى قليلاً بخصائص اللون والخط الجديدة) -->
+            <div id="display-amount" class="amount-display" style="top: 25.3%; right: 9%; height: 26px;"></div>
 
             <!-- زر "تم" الأصفر في أسفل صفحة المراجعة للعودة لوحة القيادة -->
             <div class="hotspot" style="bottom: 15px; left: 5%; width: 90%; height: 55px;" ontouchstart="goToScreen('screen-dashboard', event)" onclick="goToScreen('screen-dashboard', event)"></div>
