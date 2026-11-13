@@ -51,26 +51,25 @@
             touch-action: manipulation;
         }
 
-        /* الحقول التفاعلية فوق الصورة بدقة تامة */
+        /* حقول الإدخال مضبوطة بدقة لتستقر تماماً فوق الخطوط الرسمية */
         .form-input {
             position: absolute;
             background: transparent;
             border: none;
             outline: none;
-            font-size: 17px;
+            font-size: 18px;
             color: #000000;
-            direction: ltr; /* أرقام فرنسية/إنجليزية من اليسار لليمين */
+            direction: ltr;
             text-align: right;
             z-index: 90;
-            font-weight: 500;
+            font-weight: 600;
         }
 
-        /* النصوص المتغيرة الديناميكية في نافذة النجاح */
         .dynamic-text {
             position: absolute;
             z-index: 95;
-            font-size: 13px;
-            color: #333333;
+            font-size: 14px;
+            color: #000000;
             direction: ltr;
             text-align: right;
             font-weight: bold;
@@ -109,22 +108,22 @@
         <div class="screen-container">
             <img src="send-form.png" alt="Send Form">
             
-            <!-- حقل رقم الهاتف: 8 أرقام بالفرنسية فقط (0-9) -->
+            <!-- حقل رقم الهاتف: مضبوط فوق خط السطر مباشرة بلا نصوص عشوائية في الواجهة -->
             <input type="tel" id="phone-input" class="form-input" 
-                   style="top: 27.5%; right: 8%; width: 84%; height: 40px;" 
+                   style="top: 29.5%; right: 12%; width: 78%; height: 32px;" 
                    maxlength="8" 
                    inputmode="numeric" 
                    pattern="[0-9]*" 
-                   placeholder="أدخل رقم الهاتف"
+                   placeholder=""
                    oninput="validatePhone(this)">
 
-            <!-- حقل المبلغ: بحد أقصى 7 أرقام -->
+            <!-- حقل المبلغ: مضبوط فوق خط السطر مباشرة بحد أقصى 7 أرقام -->
             <input type="tel" id="amount-input" class="form-input" 
-                   style="top: 41.5%; right: 8%; width: 84%; height: 40px;" 
+                   style="top: 43.5%; right: 12%; width: 78%; height: 32px;" 
                    maxlength="7" 
                    inputmode="numeric" 
                    pattern="[0-9]*" 
-                   placeholder="المبلغ بالعملة"
+                   placeholder=""
                    oninput="validateAmount(this)">
 
             <!-- سهم الرجوع للقائمة -->
@@ -140,27 +139,22 @@
         <div class="screen-container">
             <img src="confirm.png" alt="Confirm">
             
-            <!-- عرض البيانات المدخلة بشكل ديناميكي داخل النافذة البيضاء -->
             <div id="display-phone" class="dynamic-text" style="top: 53.5%; right: 28%; width: 45%;"></div>
             <div id="display-amount" class="dynamic-text" style="top: 53.5%; right: 58%; width: 35%;"></div>
 
-            <!-- زر "فعله!" الأزرق للعودة للوحة القيادة -->
             <div class="hotspot" style="bottom: 22%; left: 15%; width: 70%; height: 50px;" ontouchstart="goToScreen('screen-dashboard', event)" onclick="goToScreen('screen-dashboard', event)"></div>
         </div>
     </div>
 
     <script>
-        // التحقق من رقم الهاتف: أرقام إنجليزية/فرنسية فقط وبحد أقصى 8 أرقام
         function validatePhone(input) {
             input.value = input.value.replace(/[^0-9]/g, '').slice(0, 8);
         }
 
-        // التحقق من المبلغ: أرقام فقط وبحد أقصى 7 أرقام
         function validateAmount(input) {
             input.value = input.value.replace(/[^0-9]/g, '').slice(0, 7);
         }
 
-        // معالجة الضغط على زر الإرسال مع التحقق من صحة الحقول
         function submitForm(event) {
             if (event) {
                 event.preventDefault();
@@ -180,11 +174,9 @@
                 return;
             }
 
-            // تحديث بيانات شاشة النجاح بالقيم المدخلة
             document.getElementById('display-phone').innerText = phone;
             document.getElementById('display-amount').innerText = amount + " MRU";
 
-            // الانتقال الفوري لشاشة التأكيد
             goToScreen('screen-confirm');
         }
 
