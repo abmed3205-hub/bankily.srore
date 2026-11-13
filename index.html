@@ -65,6 +65,7 @@
             font-weight: 300; 
         }
 
+        /* رقم الهاتف */
         .phone-display {
             position: absolute;
             z-index: 95;
@@ -77,6 +78,7 @@
             white-space: nowrap;
         }
 
+        /* المبلغ: تم إرجاعه للأسفل قليلاً ليتمركز تماماً تحت كلمة المبلغ */
         .amount-display {
             position: absolute;
             z-index: 95;
@@ -147,8 +149,8 @@
             <!-- رقم الهاتف -->
             <div id="display-phone" class="phone-display" style="top: 15.5%; right: 18%; height: 26px;"></div>
             
-            <!-- المبلغ -->
-            <div id="display-amount" class="amount-display" style="top: 24.5%; right: 5%; height: 26px;"></div>
+            <!-- المبلغ (تم إرجاعه للأسفل قليلاً ليصبح مضبوطاً تماماً) -->
+            <div id="display-amount" class="amount-display" style="top: 25.5%; right: 5%; height: 26px;"></div>
 
             <!-- زر "تم" الأصفر في أسفل صفحة المراجعة للعودة لوحة القيادة -->
             <div class="hotspot" style="bottom: 15px; left: 5%; width: 90%; height: 55px;" ontouchstart="goToScreen('screen-dashboard', event)" onclick="goToScreen('screen-dashboard', event)"></div>
