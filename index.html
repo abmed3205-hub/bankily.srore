@@ -66,7 +66,6 @@
     <div id="screen-dashboard" class="app-screen">
         <div class="screen-container">
             <img src="dashboard.png" alt="Dashboard">
-            <!-- الانتقال إلى قائمة التحويل (transfer.png) -->
             <div class="hotspot" style="top: 0; right: 0; width: 52%; height: 22%;" ontouchstart="goToScreen('screen-transfer-menu', event)" onclick="goToScreen('screen-transfer-menu', event)"></div>
         </div>
     </div>
@@ -75,29 +74,24 @@
     <div id="screen-transfer-menu" class="app-screen">
         <div class="screen-container">
             <img src="transfer.png" alt="Transfer Menu">
-            <!-- سهم الرجوع للوحة القيادة -->
             <div class="hotspot" style="top: 0; right: 0; width: 22%; height: 12%;" ontouchstart="goToScreen('screen-dashboard', event)" onclick="goToScreen('screen-dashboard', event)"></div>
-            <!-- النقر على زر "إرسال الأموال" (القسم الأيمن العلوي) للانتقال لصفحة الإدخال -->
             <div class="hotspot" style="top: 0; right: 0; width: 50%; height: 30%;" ontouchstart="goToScreen('screen-send-form', event)" onclick="goToScreen('screen-send-form', event)"></div>
         </div>
     </div>
 
-    <!-- 4. صفحة إدخال رقم الهاتف والمبلغ (send-form.png) -->
+    <!-- 4. صفحة إدخال الرقم والمبلغ (send-form.png) -->
     <div id="screen-send-form" class="app-screen">
         <div class="screen-container">
             <img src="send-form.png" alt="Send Form">
-            <!-- سهم الرجوع للقائمة -->
             <div class="hotspot" style="top: 0; right: 0; width: 22%; height: 12%;" ontouchstart="goToScreen('screen-transfer-menu', event)" onclick="goToScreen('screen-transfer-menu', event)"></div>
-            <!-- زر إرسال الأصفر في الأسفل للانتقال للنجاح -->
             <div class="hotspot" style="bottom: 15px; left: 5%; width: 90%; height: 55px;" ontouchstart="goToScreen('screen-confirm', event)" onclick="goToScreen('screen-confirm', event)"></div>
         </div>
     </div>
 
-    <!-- 5. صفحة النجاح والتأكيد (confirm.png) -->
+    <!-- 5. صفحة التأكيد والنجاح (confirm.png) -->
     <div id="screen-confirm" class="app-screen">
         <div class="screen-container">
             <img src="confirm.png" alt="Confirm">
-            <!-- زر "فعله!" الأزرق للعودة للوحة القيادة -->
             <div class="hotspot" style="bottom: 22%; left: 15%; width: 70%; height: 50px;" ontouchstart="goToScreen('screen-dashboard', event)" onclick="goToScreen('screen-dashboard', event)"></div>
         </div>
     </div>
