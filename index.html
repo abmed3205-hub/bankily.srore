@@ -17,7 +17,6 @@
             left: 0; 
             width: 100%; 
             height: 100%; 
-            background: #ffffff; 
             display: none; 
             justify-content: center; 
             align-items: center; 
@@ -27,12 +26,20 @@
             display: flex; 
         }
         
+        /* شاشة الترحيب بخلفية بيضاء */
+        #screen-login { background: #ffffff; }
+        
+        /* باقي الشاشات بخلفية تركوازية ليمتد اللون حتى أعلى الشاشة خلف شريط الحالة */
+        #screen-dashboard, #screen-transfer-menu, #screen-send-form, #screen-confirm { 
+            background: #00b0ba; 
+        }
+        
         .screen-container {
             position: relative;
             width: 100%;
             max-width: 430px;
             height: 100%;
-            background: #ffffff;
+            background: inherit;
         }
 
         .screen-container img { 
@@ -51,7 +58,6 @@
             touch-action: manipulation;
         }
 
-        /* تم ضبط سمك الخط ليصبح رقيقاً (300) مطابقاً تماماً للصورة الرسمية */
         .form-input {
             position: absolute;
             background: transparent;
