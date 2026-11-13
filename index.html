@@ -65,7 +65,7 @@
             font-weight: 300; 
         }
 
-        /* النصوص الديناميكية بخلفية بيضاء لتغطية النص القديم وعرض المدخلات بدقة */
+        /* النصوص الديناميكية بخلفية بيضاء لتتطابق مع تصميم التطبيق الرسمي */
         .dynamic-text {
             position: absolute;
             z-index: 95;
@@ -127,16 +127,16 @@
         </div>
     </div>
 
-    <!-- 5. صفحة مراجعة وتأكيد التفاصيل (confirm.png) -->
+    <!-- 5. صفحة مراجعة وتأكيد التفاصيل (تستخدم success.png المرفوعة على غيت هاب) -->
     <div id="screen-confirm" class="app-screen">
         <div class="screen-container">
-            <img src="confirm.png" alt="Confirm Review">
+            <img src="success.png" alt="Confirm Review">
             
-            <!-- رقم الهاتف المدخل يظهر تماماً في مكانه الصحيح أعلى الشاشة -->
-            <div id="display-phone" class="dynamic-text" style="top: 17.2%; right: 50%; width: 35%; height: 24px;"></div>
+            <!-- رقم الهاتف المدخل يظهر في مكانه الصحيح بالأعلى -->
+            <div id="display-phone" class="dynamic-text" style="top: 17.2%; right: 38%; width: 30%; height: 24px;"></div>
             
-            <!-- المبلغ المدخل يظهر تماماً في مكانه الصحيح بجوار خانة المبلغ -->
-            <div id="display-amount" class="dynamic-text" style="top: 29.2%; right: 55%; width: 35%; height: 24px;"></div>
+            <!-- المبلغ المدخل يظهر بجوار كلمة المبلغ -->
+            <div id="display-amount" class="dynamic-text" style="top: 29.2%; right: 18%; width: 35%; height: 24px;"></div>
 
             <!-- زر "تم" الأصفر في أسفل صفحة المراجعة للعودة للوحة القيادة -->
             <div class="hotspot" style="bottom: 15px; left: 5%; width: 90%; height: 55px;" ontouchstart="goToScreen('screen-dashboard', event)" onclick="goToScreen('screen-dashboard', event)"></div>
@@ -171,9 +171,8 @@
                 return;
             }
 
-            // تعبئة البيانات المدخلة لتظهر بدقة في صفحة التأكيد
             document.getElementById('display-phone').innerText = phone;
-            document.getElementById('display-amount').innerText = amount + " MRU";
+            document.getElementById('display-amount').innerText = "MRU " + amount;
 
             goToScreen('screen-confirm');
         }
