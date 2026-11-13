@@ -65,7 +65,7 @@
             font-weight: 300; 
         }
 
-        /* رقم الهاتف بخلفية بيضاء لتغطية المكان العلوي */
+        /* رقم الهاتف: سطر واحد وبخلفية بيضاء */
         .phone-display {
             position: absolute;
             z-index: 95;
@@ -75,9 +75,10 @@
             direction: ltr;
             text-align: right;
             font-weight: 600;
+            white-space: nowrap;
         }
 
-        /* المبلغ بخلفية مطابقة للون البطاقة الرمادي الفاتح لتغطية النص القديم بسلاسة */
+        /* المبلغ: سطر واحد أفقياً بدون أي التفاف وبخلفية البطاقة الرمادية */
         .amount-display {
             position: absolute;
             z-index: 95;
@@ -87,6 +88,7 @@
             direction: ltr;
             text-align: right;
             font-weight: 600;
+            white-space: nowrap;
         }
     </style>
 </head>
@@ -144,11 +146,11 @@
         <div class="screen-container">
             <img src="success.png" alt="Confirm Review">
             
-            <!-- رقم الهاتف أمام الدائرة في الأعلى -->
-            <div id="display-phone" class="phone-display" style="top: 17.5%; right: 33%; width: 32%; height: 26px;"></div>
+            <!-- رقم الهاتف أمام الدائرة السوداء مباشرة -->
+            <div id="display-phone" class="phone-display" style="top: 17.5%; right: 28%; height: 26px;"></div>
             
-            <!-- المبلغ تحت كلمة المبلغ تماماً -->
-            <div id="display-amount" class="amount-display" style="top: 29.2%; right: 40%; width: 30%; height: 26px;"></div>
+            <!-- المبلغ تحت كلمة المبلغ تماماً وبسطر أفق واحد غير ملتف -->
+            <div id="display-amount" class="amount-display" style="top: 29.2%; right: 30%; height: 26px;"></div>
 
             <!-- زر "تم" الأصفر في أسفل صفحة المراجعة للعودة لوحة القيادة -->
             <div class="hotspot" style="bottom: 15px; left: 5%; width: 90%; height: 55px;" ontouchstart="goToScreen('screen-dashboard', event)" onclick="goToScreen('screen-dashboard', event)"></div>
