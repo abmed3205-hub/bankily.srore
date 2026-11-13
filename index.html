@@ -59,21 +59,22 @@
             border: none;
             outline: none;
             font-size: 15px;
-            color: #000000;
+            color: #2c2c2e;
             text-align: right;
             z-index: 90;
             font-weight: 300; 
         }
 
+        /* تنسيق النصوص الديناميكية باللون الطبيعي المطابق للتطبيق وبدون خلفيات مزعجة */
         .exact-text {
             position: absolute;
             z-index: 95;
             font-size: 16px;
-            color: #000000;
+            color: #2c2c2e;
             background: transparent;
             direction: ltr;
             text-align: right;
-            font-weight: bold;
+            font-weight: 600;
         }
     </style>
 </head>
@@ -131,11 +132,11 @@
         <div class="screen-container">
             <img src="success.png" alt="Confirm Review">
             
-            <!-- رقم الهاتف -->
-            <div id="display-phone" class="exact-text" style="top: 17.5%; right: 35%; width: 35%; height: 26px;"></div>
+            <!-- رقم الهاتف أمام الأيقونة الدائرية في الأعلى -->
+            <div id="display-phone" class="exact-text" style="top: 17.5%; right: 30%; width: 35%; height: 26px;"></div>
             
-            <!-- المبلغ (تم تعديل right ليتجه يميناً ويطابق الدائرة الخضراء بدقة) -->
-            <div id="display-amount" class="exact-text" style="top: 29.5%; right: 25%; width: 40%; height: 26px;"></div>
+            <!-- المبلغ تحت كلمة المبلغ تماماً -->
+            <div id="display-amount" class="exact-text" style="top: 29.2%; right: 33%; width: 35%; height: 26px;"></div>
 
             <!-- زر "تم" الأصفر في أسفل صفحة المراجعة للعودة للوحة القيادة -->
             <div class="hotspot" style="bottom: 15px; left: 5%; width: 90%; height: 55px;" ontouchstart="goToScreen('screen-dashboard', event)" onclick="goToScreen('screen-dashboard', event)"></div>
