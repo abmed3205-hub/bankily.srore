@@ -77,11 +77,10 @@
 </head>
 <body>
 
-    <!-- 1. شاشة الترحيب الأولى (صورة الشخص الجديدة) -->
+    <!-- 1. شاشة الترحيب الأولى (صورة الشخص) -->
     <div id="screen-login" class="app-screen active">
         <div class="screen-container">
             <img src="login.png" alt="Welcome Splash">
-            <!-- النقر في أي مكان على شاشة الترحيب ينقلك فوراً لوحة القيادة -->
             <div class="hotspot" style="top: 0; left: 0; width: 100%; height: 100%;" ontouchstart="goToScreen('screen-dashboard', event)" onclick="goToScreen('screen-dashboard', event)"></div>
         </div>
     </div>
@@ -103,30 +102,30 @@
         </div>
     </div>
 
-    <!-- 4. صفحة إدخال البيانات (send-form.png) مع الحقول المضبوطة بدقة -->
+    <!-- 4. صفحة إدخال البيانات (send-form.png) -->
     <div id="screen-send-form" class="app-screen">
         <div class="screen-container">
             <img src="send-form.png" alt="Send Form">
             
-            <!-- حقل رقم الهاتف -->
+            <!-- حقل رقم الهاتف: تبدأ الكتابة من رأس الخط بجوار الأيقونة تماماً -->
             <input type="tel" id="phone-input" class="form-input" 
-                   style="top: 24.5%; right: 15%; width: 75%; height: 30px;" 
+                   style="top: 24.5%; right: 12%; width: 82%; height: 30px;" 
                    maxlength="8" 
                    inputmode="numeric" 
                    pattern="[0-9]*" 
                    placeholder=""
                    oninput="validatePhone(this)">
 
-            <!-- حقل المبلغ -->
+            <!-- حقل المبلغ: تم نزوله قليلاً ليستقر بدقة على الخط الثاني مثل الفيديو -->
             <input type="tel" id="amount-input" class="form-input" 
-                   style="top: 31.8%; right: 12%; width: 78%; height: 30px;" 
+                   style="top: 36.5%; right: 12%; width: 82%; height: 30px;" 
                    maxlength="7" 
                    inputmode="numeric" 
                    pattern="[0-9]*" 
                    placeholder=""
                    oninput="validateAmount(this)">
 
-            <!-- حقل الملاحظة -->
+            <!-- حقل الملاحظة: كما هو دون أي تغيير -->
             <input type="text" id="note-input" class="form-input" 
                    style="top: 47.0%; right: 12%; width: 78%; height: 30px;" 
                    maxlength="50" 
