@@ -58,19 +58,20 @@
     <div id="screen-transfer" class="app-screen">
         <img src="transfer.png" alt="Transfer">
         <!-- زر الرجوع (السهم في الأعلى على اليمين) -->
-        <div class="hotspot" style="top: 1%; right: 2%; width: 15%; height: 8%;" ontouchstart="goToScreen('screen-dashboard')" onclick="goToScreen('screen-dashboard')"></div>
-        <!-- زر إرسال الأصفر في الأسفل -->
-        <div class="hotspot" style="bottom: 0%; left: 0%; width: 100%; height: 9%;" ontouchstart="goToScreen('screen-confirm')" onclick="goToScreen('screen-confirm')"></div>
+        <div class="hotspot" style="top: 0%; right: 0%; width: 20%; height: 10%;" ontouchstart="goToScreen('screen-dashboard')" onclick="goToScreen('screen-dashboard')"></div>
+        <!-- زر إرسال الأصفر في الأسفل (مغطى بالكامل) -->
+        <div class="hotspot" style="bottom: 0%; left: 0%; width: 100%; height: 12%;" ontouchstart="goToScreen('screen-success')" onclick="goToScreen('screen-success')"></div>
     </div>
 
-    <!-- الشاشة الرابعة: التأكيد -->
-    <div id="screen-confirm" class="app-screen">
-        <img src="confirm.png" alt="Confirm">
-        <div class="hotspot" style="top: 0; left: 0; width: 100%; height: 100%;" ontouchstart="goToScreen('screen-dashboard')" onclick="goToScreen('screen-dashboard')"></div>
+    <!-- الشاشة الرابعة: نجاح العملية -->
+    <div id="screen-success" class="app-screen">
+        <img src="success.png" alt="Success">
+        <!-- زر "فعله!" الأزرق في النافذة المنسدلة للعودة للوحة القيادة -->
+        <div class="hotspot" style="bottom: 22%; left: 12%; width: 76%; height: 60px;" ontouchstart="goToScreen('screen-dashboard')" onclick="goToScreen('screen-dashboard')"></div>
     </div>
 
     <script>
-        // دالة انتقال فورية
+        // دالة انتقال فورية في لمح البصر
         function goToScreen(screenId) {
             document.querySelectorAll('.app-screen').forEach(screen => {
                 screen.classList.remove('active');
