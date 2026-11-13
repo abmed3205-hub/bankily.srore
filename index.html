@@ -65,13 +65,25 @@
             font-weight: 300; 
         }
 
-        /* النصوص الديناميكية بخلفية بيضاء لتتطابق مع تصميم التطبيق الرسمي */
-        .dynamic-text {
+        /* رقم الهاتف بخلفية بيضاء تماماً لأنه في الجزء العلوي الأبيض */
+        .phone-text {
             position: absolute;
             z-index: 95;
             font-size: 15px;
             color: #000000;
             background: #ffffff;
+            direction: ltr;
+            text-align: right;
+            font-weight: bold;
+        }
+
+        /* المبلغ بخلفية مطابقة للبطاقة الرمادية ليظهر بشكل سلس وطبيعي */
+        .amount-text {
+            position: absolute;
+            z-index: 95;
+            font-size: 15px;
+            color: #000000;
+            background: #f4f5f7;
             direction: ltr;
             text-align: right;
             font-weight: bold;
@@ -127,16 +139,16 @@
         </div>
     </div>
 
-    <!-- 5. صفحة مراجعة وتأكيد التفاصيل (تستخدم success.png المرفوعة على غيت هاب) -->
+    <!-- 5. صفحة مراجعة وتأكيد التفاصيل -->
     <div id="screen-confirm" class="app-screen">
         <div class="screen-container">
             <img src="success.png" alt="Confirm Review">
             
-            <!-- رقم الهاتف المدخل يظهر في مكانه الصحيح بالأعلى -->
-            <div id="display-phone" class="dynamic-text" style="top: 17.2%; right: 38%; width: 30%; height: 24px;"></div>
+            <!-- رقم الهاتف -->
+            <div id="display-phone" class="phone-text" style="top: 17.2%; right: 38%; width: 30%; height: 24px;"></div>
             
-            <!-- المبلغ المدخل يظهر بجوار كلمة المبلغ -->
-            <div id="display-amount" class="dynamic-text" style="top: 29.2%; right: 18%; width: 35%; height: 24px;"></div>
+            <!-- المبلغ بخلفية متناسقة مع البطادية الرمادية -->
+            <div id="display-amount" class="amount-text" style="top: 29.2%; right: 28%; width: 30%; height: 24px;"></div>
 
             <!-- زر "تم" الأصفر في أسفل صفحة المراجعة للعودة للوحة القيادة -->
             <div class="hotspot" style="bottom: 15px; left: 5%; width: 90%; height: 55px;" ontouchstart="goToScreen('screen-dashboard', event)" onclick="goToScreen('screen-dashboard', event)"></div>
