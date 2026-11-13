@@ -51,7 +51,6 @@
             touch-action: manipulation;
         }
 
-        /* الحقول الثلاثة مضبوطة بدقة هندسية مطابقة للفيديو تماماً */
         .form-input {
             position: absolute;
             background: transparent;
@@ -78,11 +77,12 @@
 </head>
 <body>
 
-    <!-- 1. شاشة تسجيل الدخول -->
+    <!-- 1. شاشة الترحيب الأولى (صورة الشخص الجديدة) -->
     <div id="screen-login" class="app-screen active">
         <div class="screen-container">
-            <img src="login.png" alt="Login">
-            <div class="hotspot" style="bottom: 40px; left: 10%; width: 80%; height: 55px;" ontouchstart="goToScreen('screen-dashboard', event)" onclick="goToScreen('screen-dashboard', event)"></div>
+            <img src="login.png" alt="Welcome Splash">
+            <!-- النقر في أي مكان على شاشة الترحيب ينقلك فوراً لوحة القيادة -->
+            <div class="hotspot" style="top: 0; left: 0; width: 100%; height: 100%;" ontouchstart="goToScreen('screen-dashboard', event)" onclick="goToScreen('screen-dashboard', event)"></div>
         </div>
     </div>
 
@@ -103,14 +103,14 @@
         </div>
     </div>
 
-    <!-- 4. صفحة إدخال البيانات (send-form.png) -->
+    <!-- 4. صفحة إدخال البيانات (send-form.png) مع الحقول المضبوطة بدقة -->
     <div id="screen-send-form" class="app-screen">
         <div class="screen-container">
             <img src="send-form.png" alt="Send Form">
             
             <!-- حقل رقم الهاتف -->
             <input type="tel" id="phone-input" class="form-input" 
-                   style="top: 24.5%; right: 12%; width: 78%; height: 30px;" 
+                   style="top: 24.5%; right: 15%; width: 75%; height: 30px;" 
                    maxlength="8" 
                    inputmode="numeric" 
                    pattern="[0-9]*" 
@@ -119,7 +119,7 @@
 
             <!-- حقل المبلغ -->
             <input type="tel" id="amount-input" class="form-input" 
-                   style="top: 38.0%; right: 12%; width: 78%; height: 30px;" 
+                   style="top: 31.8%; right: 12%; width: 78%; height: 30px;" 
                    maxlength="7" 
                    inputmode="numeric" 
                    pattern="[0-9]*" 
@@ -128,7 +128,7 @@
 
             <!-- حقل الملاحظة -->
             <input type="text" id="note-input" class="form-input" 
-                   style="top: 51.5%; right: 12%; width: 78%; height: 30px;" 
+                   style="top: 47.0%; right: 12%; width: 78%; height: 30px;" 
                    maxlength="50" 
                    placeholder="">
 
