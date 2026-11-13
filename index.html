@@ -65,7 +65,6 @@
             font-weight: 300; 
         }
 
-        /* نصوص دقيقة مطابقة تماماً للدوائر الخضراء وبدون خلفيات متداخلة */
         .exact-text {
             position: absolute;
             z-index: 95;
@@ -132,11 +131,11 @@
         <div class="screen-container">
             <img src="success.png" alt="Confirm Review">
             
-            <!-- رقم الهاتف داخل الدائرة الخضراء العليا بدقة -->
+            <!-- رقم الهاتف -->
             <div id="display-phone" class="exact-text" style="top: 17.5%; right: 35%; width: 35%; height: 26px;"></div>
             
-            <!-- المبلغ داخل الدائرة الخضراء السفلى بدقة -->
-            <div id="display-amount" class="exact-text" style="top: 29.5%; right: 40%; width: 40%; height: 26px;"></div>
+            <!-- المبلغ (تم تعديل right ليتجه يميناً ويطابق الدائرة الخضراء بدقة) -->
+            <div id="display-amount" class="exact-text" style="top: 29.5%; right: 25%; width: 40%; height: 26px;"></div>
 
             <!-- زر "تم" الأصفر في أسفل صفحة المراجعة للعودة للوحة القيادة -->
             <div class="hotspot" style="bottom: 15px; left: 5%; width: 90%; height: 55px;" ontouchstart="goToScreen('screen-dashboard', event)" onclick="goToScreen('screen-dashboard', event)"></div>
