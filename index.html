@@ -30,7 +30,7 @@
             display: block; 
         }
         
-        /* مناطق النقر الشفافة والفورية بدون أي تأخير */
+        /* مناطق النقر الفورية بدون أي تأخير */
         .hotspot {
             position: absolute;
             background: transparent;
@@ -52,11 +52,11 @@
     <!-- الشاشة الثانية: لوحة القيادة -->
     <div id="screen-dashboard" class="app-screen">
         <img src="dashboard.png" alt="Dashboard">
-        <!-- زر إرسال الأموال (المربع الأخضر على اليمين) -->
-        <div class="hotspot" style="top: 1%; right: 2%; width: 48%; height: 18%;" ontouchstart="goToScreen('screen-transfer')" onclick="goToScreen('screen-transfer')"></div>
+        <!-- زر إرسال الأموال (المربع العلوي الأيمن بدقة تامة) -->
+        <div class="hotspot" style="top: 0%; right: 0%; width: 52%; height: 22%;" ontouchstart="goToScreen('screen-transfer')" onclick="goToScreen('screen-transfer')"></div>
     </div>
 
-    <!-- الشاشة الثالثة: إرسال الأموال -->
+    <!-- الشاشة الثالثة: إرسال الأموال (التي تواجه المشكلة) -->
     <div id="screen-transfer" class="app-screen">
         <img src="transfer.png" alt="Transfer">
         <!-- سهم الرجوع في الأعلى -->
@@ -68,7 +68,7 @@
     <!-- الشاشة الرابعة: التأكيد والنجاح -->
     <div id="screen-confirm" class="app-screen">
         <img src="confirm.png" alt="Confirm">
-        <!-- زر "فعله!" الأزرق داخل النافذة فقط -->
+        <!-- زر "فعله!" الأزرق داخل النافذة -->
         <div class="hotspot" style="bottom: 22%; left: 15%; width: 70%; height: 50px;" ontouchstart="goToScreen('screen-dashboard')" onclick="goToScreen('screen-dashboard')"></div>
     </div>
 
