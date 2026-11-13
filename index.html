@@ -59,35 +59,35 @@
             border: none;
             outline: none;
             font-size: 15px;
-            color: #2c2c2e;
+            color: #000000;
             text-align: right;
             z-index: 90;
             font-weight: 300; 
         }
 
-        /* رقم الهاتف في مكانه المثالي بجانب الدائرة السوداء */
+        /* رقم الهاتف بلون وخون مطابق للصورة */
         .phone-display {
             position: absolute;
             z-index: 95;
             font-size: 16px;
-            color: #2c2c2e;
+            color: #000000;
             background: #ffffff;
             direction: ltr;
             text-align: right;
-            font-weight: 600;
+            font-weight: bold;
             white-space: nowrap;
         }
 
-        /* المبلغ تم رفعه للأعلى قليلاً وإزاحته لليمين تحت كلمة المبلغ تماماً */
+        /* المبلغ: تم رفعه قليلاً للأعلى وبنفس اللون والخط المطابق للصورة */
         .amount-display {
             position: absolute;
             z-index: 95;
             font-size: 16px;
-            color: #2c2c2e;
+            color: #000000;
             background: #f4f5f7;
             direction: ltr;
             text-align: right;
-            font-weight: 600;
+            font-weight: bold;
             white-space: nowrap;
         }
     </style>
@@ -149,8 +149,8 @@
             <!-- رقم الهاتف -->
             <div id="display-phone" class="phone-display" style="top: 15.5%; right: 18%; height: 26px;"></div>
             
-            <!-- المبلغ (تم رفعه للأعلى قليلاً وإزاحته لليمين) -->
-            <div id="display-amount" class="amount-display" style="top: 28.0%; right: 9%; height: 26px;"></div>
+            <!-- المبلغ (تم رفعه قليلاً للأعلى ليتطابق مع الصورة تماماً) -->
+            <div id="display-amount" class="amount-display" style="top: 27.2%; right: 9%; height: 26px;"></div>
 
             <!-- زر "تم" الأصفر في أسفل صفحة المراجعة للعودة لوحة القيادة -->
             <div class="hotspot" style="bottom: 15px; left: 5%; width: 90%; height: 55px;" ontouchstart="goToScreen('screen-dashboard', event)" onclick="goToScreen('screen-dashboard', event)"></div>
