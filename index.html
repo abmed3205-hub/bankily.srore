@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
     <title>Bankily PWA</title>
     <link rel="manifest" href="manifest.json">
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
-        body, html { width: 100%; height: 100%; background-color: #00b0ba; display: flex; justify-content: center; align-items: center; overflow: hidden; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+        body, html { width: 100%; height: 100%; background-color: #000000; display: flex; justify-content: center; align-items: center; overflow: hidden; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
         
         .app-screen { 
             position: fixed; 
@@ -26,13 +26,8 @@
             display: flex; 
         }
         
-        /* شاشة الترحيب بخلفية بيضاء */
         #screen-login { background: #ffffff; }
-        
-        /* باقي الشاشات بخلفية تركوازية تغطي المساحة بالكامل حتى الأعلى */
-        #screen-dashboard, #screen-transfer-menu, #screen-send-form, #screen-confirm { 
-            background: #00b0ba; 
-        }
+        #screen-dashboard, #screen-transfer-menu, #screen-send-form, #screen-confirm { background: #00b0ba; }
         
         .screen-container {
             position: relative;
@@ -40,7 +35,6 @@
             max-width: 430px;
             height: 100%;
             background: inherit;
-            padding-top: env(safe-area-inset-top);
         }
 
         .screen-container img { 
@@ -78,7 +72,7 @@
             color: #000000;
             direction: ltr;
             text-align: right;
-            font-weight: 400;
+            font-weight: bold;
         }
     </style>
 </head>
@@ -100,7 +94,7 @@
         </div>
     </div>
 
-    <!-- 3. قائمة التحويل (transfer.png) -->
+    <!-- 3. قائمة التحويل -->
     <div id="screen-transfer-menu" class="app-screen">
         <div class="screen-container">
             <img src="transfer.png" alt="Transfer Menu">
@@ -109,51 +103,37 @@
         </div>
     </div>
 
-    <!-- 4. صفحة إدخال البيانات (send-form.png) -->
+    <!-- 4. صفحة إدخال البيانات -->
     <div id="screen-send-form" class="app-screen">
         <div class="screen-container">
             <img src="send-form.png" alt="Send Form">
             
-            <!-- حقل رقم الهاتف -->
             <input type="tel" id="phone-input" class="form-input" 
                    style="top: 24.5%; right: 6%; width: 88%; height: 30px; direction: ltr;" 
-                   maxlength="8" 
-                   inputmode="numeric" 
-                   pattern="[0-9]*" 
-                   placeholder=""
-                   oninput="validatePhone(this)">
+                   maxlength="8" inputmode="numeric" pattern="[0-9]*" placeholder="" oninput="validatePhone(this)">
 
-            <!-- حقل المبلغ -->
             <input type="tel" id="amount-input" class="form-input" 
                    style="top: 36.5%; right: 6%; width: 88%; height: 30px; direction: ltr;" 
-                   maxlength="7" 
-                   inputmode="numeric" 
-                   pattern="[0-9]*" 
-                   placeholder=""
-                   oninput="validateAmount(this)">
+                   maxlength="7" inputmode="numeric" pattern="[0-9]*" placeholder="" oninput="validateAmount(this)">
 
-            <!-- حقل الملاحظة -->
             <input type="text" id="note-input" class="form-input" 
                    style="top: 47.0%; right: 6%; width: 88%; height: 30px; direction: rtl;" 
-                   maxlength="50" 
-                   placeholder="">
+                   maxlength="50" placeholder="">
 
-            <!-- سهم الرجوع للقائمة -->
             <div class="hotspot" style="top: 0; right: 0; width: 22%; height: 12%;" ontouchstart="goToScreen('screen-transfer-menu', event)" onclick="goToScreen('screen-transfer-menu', event)"></div>
-            
-            <!-- زر إرسال الأصفر في الأسفل -->
             <div class="hotspot" style="bottom: 15px; left: 5%; width: 90%; height: 55px;" ontouchstart="submitForm(event)" onclick="submitForm(event)"></div>
         </div>
     </div>
 
-    <!-- 5. صفحة التأكيد والنجاح (confirm.png) -->
+    <!-- 5. شاشة نجاح التحويل (تستعرض صورة confirm.png التي رفعتها وفيها نافذة النقل ناجح) -->
     <div id="screen-confirm" class="app-screen">
         <div class="screen-container">
-            <img src="confirm.png" alt="Confirm">
+            <img src="confirm.png" alt="Success">
             
-            <div id="display-phone" class="dynamic-text" style="top: 53.5%; right: 28%; width: 45%;"></div>
-            <div id="display-amount" class="dynamic-text" style="top: 53.5%; right: 58%; width: 35%;"></div>
+            <div id="display-phone" class="dynamic-text" style="top: 50%; right: 35%; width: 30%;"></div>
+            <div id="display-amount" class="dynamic-text" style="top: 50%; right: 65%; width: 25%;"></div>
 
+            <!-- زر "فعله!" الأزرق في نافذة النجاح للعودة لوحة القيادة -->
             <div class="hotspot" style="bottom: 22%; left: 15%; width: 70%; height: 50px;" ontouchstart="goToScreen('screen-dashboard', event)" onclick="goToScreen('screen-dashboard', event)"></div>
         </div>
     </div>
@@ -187,7 +167,7 @@
             }
 
             document.getElementById('display-phone').innerText = phone;
-            document.getElementById('display-amount').innerText = amount + " MRU";
+            document.getElementById('display-amount').innerText = "MRU " + amount;
 
             goToScreen('screen-confirm');
         }
