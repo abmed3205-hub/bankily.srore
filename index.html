@@ -23,33 +23,43 @@
             display: block; 
         }
         
-        /* حقل رقم الهاتف الشفاف */
+        /* حقل رقم الهاتف بتصميم مرتب ومريح */
         .input-phone {
             position: absolute;
-            top: 42%;
+            top: 45%;
             left: 10%;
             width: 80%;
-            height: 45px;
-            background: transparent;
-            border: none;
+            height: 48px;
+            background: #ffffff;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            padding: 0 15px;
             outline: none;
             font-size: 16px;
+            color: #333;
+            direction: ltr;
+            text-align: right;
         }
 
-        /* حقل الرقم السري الشفاف */
+        /* حقل الرقم السري بتصميم مرتب ومريح */
         .input-pin {
             position: absolute;
-            top: 53%;
+            top: 57%;
             left: 10%;
             width: 80%;
-            height: 45px;
-            background: transparent;
-            border: none;
+            height: 48px;
+            background: #ffffff;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            padding: 0 15px;
             outline: none;
             font-size: 16px;
+            color: #333;
+            letter-spacing: 3px;
+            text-align: right;
         }
 
-        /* زر تسجيل الدخول الشفاف مضبوط تماماً على الزر الأصفر في الأسفل */
+        /* زر تسجيل الدخول الأصفر في الأسفل */
         .hotspot-login {
             position: absolute;
             bottom: 8%;
@@ -68,8 +78,8 @@
     <div class="app-screen">
         <img src="login.png" alt="Login">
         
-        <input type="text" class="input-phone">
-        <input type="password" class="input-pin">
+        <input type="text" class="input-phone" placeholder="رقم الهاتف">
+        <input type="password" class="input-pin" placeholder="••••">
         
         <a href="dashboard.html" class="hotspot-login"></a>
     </div>
