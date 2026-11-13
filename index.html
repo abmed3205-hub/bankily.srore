@@ -58,7 +58,6 @@
             outline: none;
             font-size: 15px;
             color: #000000;
-            direction: ltr;
             text-align: right;
             z-index: 90;
             font-weight: 500;
@@ -107,27 +106,27 @@
         <div class="screen-container">
             <img src="send-form.png" alt="Send Form">
             
-            <!-- حقل رقم الهاتف: تبدأ الكتابة من رأس الخط بجوار الأيقونة تماماً -->
+            <!-- حقل رقم الهاتف: يبدأ من رأس الخط تماماً (direction: ltr) -->
             <input type="tel" id="phone-input" class="form-input" 
-                   style="top: 24.5%; right: 12%; width: 82%; height: 30px;" 
+                   style="top: 24.5%; right: 6%; width: 88%; height: 30px; direction: ltr;" 
                    maxlength="8" 
                    inputmode="numeric" 
                    pattern="[0-9]*" 
                    placeholder=""
                    oninput="validatePhone(this)">
 
-            <!-- حقل المبلغ: تم نزوله قليلاً ليستقر بدقة على الخط الثاني مثل الفيديو -->
+            <!-- حقل المبلغ: يبدأ من رأس الخط تماماً (direction: ltr) -->
             <input type="tel" id="amount-input" class="form-input" 
-                   style="top: 36.5%; right: 12%; width: 82%; height: 30px;" 
+                   style="top: 36.5%; right: 6%; width: 88%; height: 30px; direction: ltr;" 
                    maxlength="7" 
                    inputmode="numeric" 
                    pattern="[0-9]*" 
                    placeholder=""
                    oninput="validateAmount(this)">
 
-            <!-- حقل الملاحظة: كما هو دون أي تغيير -->
+            <!-- حقل الملاحظة: يبدأ من رأس الخط تماماً (direction: rtl للنصوص العربية) -->
             <input type="text" id="note-input" class="form-input" 
-                   style="top: 47.0%; right: 12%; width: 78%; height: 30px;" 
+                   style="top: 47.0%; right: 6%; width: 88%; height: 30px; direction: rtl;" 
                    maxlength="50" 
                    placeholder="">
 
