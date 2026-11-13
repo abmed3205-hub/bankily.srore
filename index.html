@@ -9,71 +9,105 @@
     <link rel="manifest" href="manifest.json">
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
-        body, html { width: 100%; height: 100%; background-color: #ffffff; display: flex; justify-content: center; align-items: center; overflow: hidden; }
+        body, html { width: 100%; height: 100%; background-color: #000000; display: flex; justify-content: center; align-items: center; overflow: hidden; }
         
         .app-screen { 
-            position: relative; 
+            position: fixed; 
+            top: 0; 
+            left: 0; 
             width: 100%; 
-            max-width: 430px; 
-            height: 100vh; 
+            height: 100%; 
+            background: #ffffff; 
             display: none; 
+            justify-content: center; 
+            align-items: center; 
         }
         
         .app-screen.active { 
-            display: block; 
+            display: flex; 
         }
         
-        .app-screen img { 
+        .screen-container {
+            position: relative;
+            width: 100%;
+            max-width: 430px;
+            height: 100%;
+            background: #ffffff;
+        }
+
+        .screen-container img { 
             width: 100%; 
             height: 100%; 
             object-fit: fill; 
             display: block; 
         }
         
-        /* مناطق النقر الفورية بدون أي تأخير */
         .hotspot {
             position: absolute;
             background: transparent;
             cursor: pointer;
             border: none;
-            z-index: 10;
+            z-index: 100;
             touch-action: manipulation;
         }
     </style>
 </head>
 <body>
 
-    <!-- الشاشة الأولى: تسجيل الدخول -->
+    <!-- 1. شاشة تسجيل الدخول -->
     <div id="screen-login" class="app-screen active">
-        <img src="login.png" alt="Login">
-        <div class="hotspot" style="bottom: 5%; left: 10%; width: 80%; height: 55px;" ontouchstart="goToScreen('screen-dashboard')" onclick="goToScreen('screen-dashboard')"></div>
+        <div class="screen-container">
+            <img src="login.png" alt="Login">
+            <div class="hotspot" style="bottom: 40px; left: 10%; width: 80%; height: 55px;" ontouchstart="goToScreen('screen-dashboard', event)" onclick="goToScreen('screen-dashboard', event)"></div>
+        </div>
     </div>
 
-    <!-- الشاشة الثانية: لوحة القيادة -->
+    <!-- 2. لوحة القيادة -->
     <div id="screen-dashboard" class="app-screen">
-        <img src="dashboard.png" alt="Dashboard">
-        <!-- زر إرسال الأموال (المربع العلوي الأيمن بدقة تامة) -->
-        <div class="hotspot" style="top: 0%; right: 0%; width: 52%; height: 22%;" ontouchstart="goToScreen('screen-transfer')" onclick="goToScreen('screen-transfer')"></div>
+        <div class="screen-container">
+            <img src="dashboard.png" alt="Dashboard">
+            <!-- الانتقال إلى قائمة التحويل (transfer.png) -->
+            <div class="hotspot" style="top: 0; right: 0; width: 52%; height: 22%;" ontouchstart="goToScreen('screen-transfer-menu', event)" onclick="goToScreen('screen-transfer-menu', event)"></div>
+        </div>
     </div>
 
-    <!-- الشاشة الثالثة: إرسال الأموال (التي تواجه المشكلة) -->
-    <div id="screen-transfer" class="app-screen">
-        <img src="transfer.png" alt="Transfer">
-        <!-- سهم الرجوع في الأعلى -->
-        <div class="hotspot" style="top: 0; right: 0; width: 20%; height: 10%;" ontouchstart="goToScreen('screen-dashboard')" onclick="goToScreen('screen-dashboard')"></div>
-        <!-- زر إرسال الأصفر في الأسفل -->
-        <div class="hotspot" style="bottom: 0; left: 0; width: 100%; height: 12%;" ontouchstart="goToScreen('screen-confirm')" onclick="goToScreen('screen-confirm')"></div>
+    <!-- 3. قائمة التحويل (transfer.png) -->
+    <div id="screen-transfer-menu" class="app-screen">
+        <div class="screen-container">
+            <img src="transfer.png" alt="Transfer Menu">
+            <!-- سهم الرجوع للوحة القيادة -->
+            <div class="hotspot" style="top: 0; right: 0; width: 22%; height: 12%;" ontouchstart="goToScreen('screen-dashboard', event)" onclick="goToScreen('screen-dashboard', event)"></div>
+            <!-- النقر على زر "إرسال الأموال" (القسم الأيمن العلوي) للانتقال لصفحة الإدخال -->
+            <div class="hotspot" style="top: 0; right: 0; width: 50%; height: 30%;" ontouchstart="goToScreen('screen-send-form', event)" onclick="goToScreen('screen-send-form', event)"></div>
+        </div>
     </div>
 
-    <!-- الشاشة الرابعة: التأكيد والنجاح -->
+    <!-- 4. صفحة إدخال رقم الهاتف والمبلغ (send-form.png) -->
+    <div id="screen-send-form" class="app-screen">
+        <div class="screen-container">
+            <img src="send-form.png" alt="Send Form">
+            <!-- سهم الرجوع للقائمة -->
+            <div class="hotspot" style="top: 0; right: 0; width: 22%; height: 12%;" ontouchstart="goToScreen('screen-transfer-menu', event)" onclick="goToScreen('screen-transfer-menu', event)"></div>
+            <!-- زر إرسال الأصفر في الأسفل للانتقال للنجاح -->
+            <div class="hotspot" style="bottom: 15px; left: 5%; width: 90%; height: 55px;" ontouchstart="goToScreen('screen-confirm', event)" onclick="goToScreen('screen-confirm', event)"></div>
+        </div>
+    </div>
+
+    <!-- 5. صفحة النجاح والتأكيد (confirm.png) -->
     <div id="screen-confirm" class="app-screen">
-        <img src="confirm.png" alt="Confirm">
-        <!-- زر "فعله!" الأزرق داخل النافذة -->
-        <div class="hotspot" style="bottom: 22%; left: 15%; width: 70%; height: 50px;" ontouchstart="goToScreen('screen-dashboard')" onclick="goToScreen('screen-dashboard')"></div>
+        <div class="screen-container">
+            <img src="confirm.png" alt="Confirm">
+            <!-- زر "فعله!" الأزرق للعودة للوحة القيادة -->
+            <div class="hotspot" style="bottom: 22%; left: 15%; width: 70%; height: 50px;" ontouchstart="goToScreen('screen-dashboard', event)" onclick="goToScreen('screen-dashboard', event)"></div>
+        </div>
     </div>
 
     <script>
-        function goToScreen(screenId) {
+        function goToScreen(screenId, event) {
+            if (event) {
+                event.preventDefault();
+                event.stopPropagation();
+            }
             document.querySelectorAll('.app-screen').forEach(screen => {
                 screen.classList.remove('active');
             });
