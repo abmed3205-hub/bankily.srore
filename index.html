@@ -6,16 +6,16 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
     <title>Bankily PWA</title>
+    <link rel="manifest" href="manifest.json">
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
-        body, html { width: 100%; height: 100%; background-color: #000; display: flex; justify-content: center; align-items: center; overflow: hidden; }
+        body, html { width: 100%; height: 100%; background-color: #ffffff; display: flex; justify-content: center; align-items: center; overflow: hidden; }
         
         .app-screen { 
             position: relative; 
             width: 100%; 
             max-width: 430px; 
-            height: 100%; 
-            max-height: 932px;
+            height: 100vh; 
             display: none; 
         }
         
@@ -30,13 +30,13 @@
             display: block; 
         }
         
-        /* مناطق النقر (مرئية مؤقتاً بلون أحمر شفاف وإطار أصفر لترها بوضوح) */
+        /* مناطق النقر الشفافة والفورية بدون أي تأخير */
         .hotspot {
             position: absolute;
-            background: rgba(255, 0, 0, 0.3);
-            border: 2px dashed yellow;
+            background: transparent;
             cursor: pointer;
-            z-index: 999;
+            border: none;
+            z-index: 10;
             touch-action: manipulation;
         }
     </style>
@@ -46,28 +46,30 @@
     <!-- الشاشة الأولى: تسجيل الدخول -->
     <div id="screen-login" class="app-screen active">
         <img src="login.png" alt="Login">
-        <div class="hotspot" style="bottom: 5%; left: 10%; width: 80%; height: 60px;" ontouchstart="goToScreen('screen-dashboard')" onclick="goToScreen('screen-dashboard')"></div>
+        <div class="hotspot" style="bottom: 5%; left: 10%; width: 80%; height: 55px;" ontouchstart="goToScreen('screen-dashboard')" onclick="goToScreen('screen-dashboard')"></div>
     </div>
 
     <!-- الشاشة الثانية: لوحة القيادة -->
     <div id="screen-dashboard" class="app-screen">
         <img src="dashboard.png" alt="Dashboard">
+        <!-- زر إرسال الأموال (المربع الأخضر على اليمين) -->
         <div class="hotspot" style="top: 1%; right: 2%; width: 48%; height: 18%;" ontouchstart="goToScreen('screen-transfer')" onclick="goToScreen('screen-transfer')"></div>
     </div>
 
     <!-- الشاشة الثالثة: إرسال الأموال -->
     <div id="screen-transfer" class="app-screen">
         <img src="transfer.png" alt="Transfer">
-        <!-- زر الرجوع في الأعلى -->
-        <div class="hotspot" style="top: 0; right: 0; width: 25%; height: 12%;" ontouchstart="goToScreen('screen-dashboard')" onclick="goToScreen('screen-dashboard')"></div>
-        <!-- زر إرسال الأصفر في الأسفل (مغطى بالكامل ومحدد باللون الأحمر والأصفر) -->
-        <div class="hotspot" style="bottom: 0; left: 0; width: 100%; height: 15%;" ontouchstart="goToScreen('screen-confirm')" onclick="goToScreen('screen-confirm')"></div>
+        <!-- سهم الرجوع في الأعلى -->
+        <div class="hotspot" style="top: 0; right: 0; width: 20%; height: 10%;" ontouchstart="goToScreen('screen-dashboard')" onclick="goToScreen('screen-dashboard')"></div>
+        <!-- زر إرسال الأصفر في الأسفل -->
+        <div class="hotspot" style="bottom: 0; left: 0; width: 100%; height: 12%;" ontouchstart="goToScreen('screen-confirm')" onclick="goToScreen('screen-confirm')"></div>
     </div>
 
-    <!-- الشاشة الرابعة: التأكيد -->
+    <!-- الشاشة الرابعة: التأكيد والنجاح -->
     <div id="screen-confirm" class="app-screen">
         <img src="confirm.png" alt="Confirm">
-        <div class="hotspot" style="top: 0; left: 0; width: 100%; height: 100%;" ontouchstart="goToScreen('screen-dashboard')" onclick="goToScreen('screen-dashboard')"></div>
+        <!-- زر "فعله!" الأزرق داخل النافذة فقط -->
+        <div class="hotspot" style="bottom: 22%; left: 15%; width: 70%; height: 50px;" ontouchstart="goToScreen('screen-dashboard')" onclick="goToScreen('screen-dashboard')"></div>
     </div>
 
     <script>
