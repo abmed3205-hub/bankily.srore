@@ -5,8 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
-    <title>Bankily - تسجيل الدخول</title>
-    <link rel="manifest" href="manifest.json">
+    <title>Bankily PWA</title>
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
         body, html { width: 100%; height: 100%; background-color: #ffffff; display: flex; justify-content: center; align-items: center; overflow: hidden; }
@@ -16,6 +15,11 @@
             width: 100%; 
             max-width: 430px; 
             height: 100vh; 
+            display: none; /* إخفاء جميع الشاشات افتراضياً */
+        }
+        
+        .app-screen.active { 
+            display: block; /* إظهار الشاشة النشطة فقط */
         }
         
         .app-screen img { 
@@ -25,13 +29,9 @@
             display: block; 
         }
         
-        /* زر تسجيل الدخول الأصفر في الأسفل */
-        .hotspot-login {
+        /* مناطق النقر الشفافة (Hotspots) */
+        .hotspot {
             position: absolute;
-            bottom: 6%;
-            left: 10%;
-            width: 80%;
-            height: 55px;
             background: transparent;
             cursor: pointer;
             border: none;
@@ -41,10 +41,43 @@
 </head>
 <body>
 
-    <div class="app-screen">
+    <!-- الشاشة الأولى: تسجيل الدخول -->
+    <div id="screen-login" class="app-screen active">
         <img src="login.png" alt="Login">
-        <a href="dashboard.html" class="hotspot-login"></a>
+        <!-- زر تسجيل الدخول للانتقال للوحة القيادة -->
+        <div class="hotspot" style="bottom: 6%; left: 10%; width: 80%; height: 55px;" onclick="goToScreen('screen-dashboard')"></div>
     </div>
+
+    <!-- الشاشة الثانية: لوحة القيادة -->
+    <div id="screen-dashboard" class="app-screen">
+        <img src="dashboard.png" alt="Dashboard">
+        <!-- زر إرسال الأموال للانتقال لصفحة التحويل -->
+        <div class="hotspot" style="top: 2%; right: 4%; width: 44%; height: 16%;" onclick="goToScreen('screen-transfer')"></div>
+    </div>
+
+    <!-- الشاشة الثالثة: التحويل -->
+    <div id="screen-transfer" class="app-screen">
+        <img src="transfer.png" alt="Transfer">
+        <!-- زر المتابعة للتأكيد -->
+        <div class="hotspot" style="bottom: 20px; left: 5%; width: 90%; height: 55px;" onclick="goToScreen('screen-confirm')"></div>
+    </div>
+
+    <!-- الشاشة الرابعة: التأكيد -->
+    <div id="screen-confirm" class="app-screen">
+        <img src="confirm.png" alt="Confirm">
+        <!-- زر العودة للوحة القيادة -->
+        <div class="hotspot" style="top: 0; left: 0; width: 100%; height: 100%;" onclick="goToScreen('screen-dashboard')"></div>
+    </div>
+
+    <script>
+        // دالة الانتقال الفوري بين الشاشات بدون أي تحميل
+        function goToScreen(screenId) {
+            document.querySelectorAll('.app-screen').forEach(screen => {
+                screen.classList.remove('active');
+            });
+            document.getElementById(screenId).classList.add('active');
+        }
+    </script>
 
 </body>
 </html>
