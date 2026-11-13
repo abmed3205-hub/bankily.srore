@@ -65,7 +65,7 @@
             font-weight: 300; 
         }
 
-        /* رقم الهاتف في مكانه الصحيح بجانب الدائرة السوداء */
+        /* رقم الهاتف في مكانه المثالي بجانب الدائرة السوداء */
         .phone-display {
             position: absolute;
             z-index: 95;
@@ -78,7 +78,7 @@
             white-space: nowrap;
         }
 
-        /* المبلغ تم نقله إلى اليمين ليقع تحت كلمة المبلغ مباشرة */
+        /* المبلغ تم رفعه للأعلى قليلاً وإزاحته لليمين تحت كلمة المبلغ تماماً */
         .amount-display {
             position: absolute;
             z-index: 95;
@@ -149,8 +149,8 @@
             <!-- رقم الهاتف -->
             <div id="display-phone" class="phone-display" style="top: 15.5%; right: 18%; height: 26px;"></div>
             
-            <!-- المبلغ (تم نقله إلى اليمين تحت كلمة المبلغ تماماً) -->
-            <div id="display-amount" class="amount-display" style="top: 29.2%; right: 12%; height: 26px;"></div>
+            <!-- المبلغ (تم رفعه للأعلى قليلاً وإزاحته لليمين) -->
+            <div id="display-amount" class="amount-display" style="top: 28.0%; right: 9%; height: 26px;"></div>
 
             <!-- زر "تم" الأصفر في أسفل صفحة المراجعة للعودة لوحة القيادة -->
             <div class="hotspot" style="bottom: 15px; left: 5%; width: 90%; height: 55px;" ontouchstart="goToScreen('screen-dashboard', event)" onclick="goToScreen('screen-dashboard', event)"></div>
