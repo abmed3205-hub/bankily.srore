@@ -65,7 +65,7 @@
             font-weight: 300; 
         }
 
-        /* رقم الهاتف: سطر واحد وبخلفية بيضاء */
+        /* رقم الهاتف: تم رفعه وإزاحته لليمين بجانب الدائرة السوداء */
         .phone-display {
             position: absolute;
             z-index: 95;
@@ -78,7 +78,7 @@
             white-space: nowrap;
         }
 
-        /* المبلغ: سطر واحد أفقياً بدون أي التفاف وبخلفية البطاقة الرمادية */
+        /* المبلغ */
         .amount-display {
             position: absolute;
             z-index: 95;
@@ -146,10 +146,10 @@
         <div class="screen-container">
             <img src="success.png" alt="Confirm Review">
             
-            <!-- رقم الهاتف أمام الدائرة السوداء مباشرة -->
-            <div id="display-phone" class="phone-display" style="top: 17.5%; right: 28%; height: 26px;"></div>
+            <!-- رقم الهاتف (تم تعديله ليصبح بجانب الدائرة السوداء تماماً) -->
+            <div id="display-phone" class="phone-display" style="top: 15.5%; right: 18%; height: 26px;"></div>
             
-            <!-- المبلغ تحت كلمة المبلغ تماماً وبسطر أفق واحد غير ملتف -->
+            <!-- المبلغ (سننتقل لتعديله بدقة في الخطوة القادمة فور تأكيدك لرقم الهاتف) -->
             <div id="display-amount" class="amount-display" style="top: 29.2%; right: 30%; height: 26px;"></div>
 
             <!-- زر "تم" الأصفر في أسفل صفحة المراجعة للعودة لوحة القيادة -->
