@@ -65,7 +65,7 @@
             font-weight: 300; 
         }
 
-        /* رقم الهاتف: تم رفعه وإزاحته لليمين بجانب الدائرة السوداء */
+        /* رقم الهاتف في مكانه الصحيح بجانب الدائرة السوداء */
         .phone-display {
             position: absolute;
             z-index: 95;
@@ -78,7 +78,7 @@
             white-space: nowrap;
         }
 
-        /* المبلغ */
+        /* المبلغ تم نقله إلى اليمين ليقع تحت كلمة المبلغ مباشرة */
         .amount-display {
             position: absolute;
             z-index: 95;
@@ -146,11 +146,11 @@
         <div class="screen-container">
             <img src="success.png" alt="Confirm Review">
             
-            <!-- رقم الهاتف (تم تعديله ليصبح بجانب الدائرة السوداء تماماً) -->
+            <!-- رقم الهاتف -->
             <div id="display-phone" class="phone-display" style="top: 15.5%; right: 18%; height: 26px;"></div>
             
-            <!-- المبلغ (سننتقل لتعديله بدقة في الخطوة القادمة فور تأكيدك لرقم الهاتف) -->
-            <div id="display-amount" class="amount-display" style="top: 29.2%; right: 30%; height: 26px;"></div>
+            <!-- المبلغ (تم نقله إلى اليمين تحت كلمة المبلغ تماماً) -->
+            <div id="display-amount" class="amount-display" style="top: 29.2%; right: 12%; height: 26px;"></div>
 
             <!-- زر "تم" الأصفر في أسفل صفحة المراجعة للعودة لوحة القيادة -->
             <div class="hotspot" style="bottom: 15px; left: 5%; width: 90%; height: 55px;" ontouchstart="goToScreen('screen-dashboard', event)" onclick="goToScreen('screen-dashboard', event)"></div>
