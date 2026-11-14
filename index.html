@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <title>Bankily PWA</title>
     <link rel="manifest" href="manifest.json">
     <style>
@@ -78,7 +78,7 @@
             white-space: nowrap;
         }
 
-        /* المبلغ: تم إنزاله للأسفل قليلاً ليستقر تماماً تحت كلمة المبلغ */
+        /* المبلغ */
         .amount-display {
             position: absolute;
             z-index: 95;
@@ -149,10 +149,10 @@
             <!-- رقم الهاتف -->
             <div id="display-phone" class="phone-display" style="top: 15.5%; right: 18%; height: 26px;"></div>
             
-            <!-- المبلغ (تم إنزاله قليلاً للأسفل ليصبح تحت كلمة المبلغ مباشرة) -->
+            <!-- المبلغ -->
             <div id="display-amount" class="amount-display" style="top: 28.2%; right: 8%; height: 26px;"></div>
 
-            <!-- زر "تم" الأصفر في أسفل صفحة المراجعة للعودة لوحة القيادة -->
+            <!-- زر "تم" -->
             <div class="hotspot" style="bottom: 15px; left: 5%; width: 90%; height: 55px;" ontouchstart="goToScreen('screen-dashboard', event)" onclick="goToScreen('screen-dashboard', event)"></div>
         </div>
     </div>
