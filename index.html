@@ -180,14 +180,14 @@
         <div class="screen-container">
             <img src="success-popup.png" alt="Success Popup">
 
-            <!-- رقم الهاتف (مسحوب لليسار ومرفوع للأعلى قليلاً ليقابض النقطتين للمستفيد) -->
-            <div id="success-phone" class="success-val" style="top: 50.4%; right: 21%; direction: ltr;"></div>
+            <!-- رقم الهاتف بجانب كلمة "المستفيد:" مباشرة على نفس السطر -->
+            <div id="success-phone" class="success-val" style="top: 51.1%; right: 29.5%; direction: ltr;"></div>
 
-            <!-- المبلغ (مسحوب لليسار ومرفوع للأعلى قليلاً) -->
-            <div id="success-amount" class="success-val" style="top: 50.4%; left: 21%; direction: ltr;"></div>
+            <!-- المبلغ بجانب كلمة "المبلغ المرسل:" مباشرة على نفس السطر -->
+            <div id="success-amount" class="success-val" style="top: 51.1%; left: 16%; direction: ltr;"></div>
 
-            <!-- التاريخ والوقت -->
-            <div id="success-time" class="success-val" style="top: 57.8%; right: 28%; direction: ltr;"></div>
+            <!-- التاريخ والوقت بجانب كلمة "التاريخ والوقت:" -->
+            <div id="success-time" class="success-val" style="top: 57.9%; right: 28%; direction: ltr;"></div>
 
             <!-- زر "فعله!" الأزرق للعودة إلى لوحة القيادة -->
             <div class="hotspot" style="top: 62.2%; left: 16%; width: 68%; height: 8.5%;" ontouchstart="goToScreen('screen-dashboard', event)" onclick="goToScreen('screen-dashboard', event)"></div>
@@ -278,7 +278,7 @@
             const seconds = String(now.getSeconds()).padStart(2, '0');
             const dateTimeStr = `${yy}-${mm}-${dd} ${hours}:${minutes}:${seconds}`;
 
-            // حقن القيم مباشرة في أماكنها الجديدة المضبوطة
+            // حقن القيم بدقة في أماكنها على نفس السطر
             document.getElementById('success-phone').innerText = phone;
             document.getElementById('success-amount').innerText = `MRU ${amountVal}`;
             document.getElementById('success-time').innerText = dateTimeStr;
