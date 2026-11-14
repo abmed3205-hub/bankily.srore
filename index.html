@@ -139,7 +139,6 @@
                    maxlength="50" placeholder="">
 
             <div class="hotspot" style="top: 0; right: 0; width: 22%; height: 12%;" ontouchstart="goToScreen('screen-transfer-menu', event)" onclick="goToScreen('screen-transfer-menu', event)"></div>
-            <!-- زر الإرسال ينتقل الآن إلى شاشة إدخال الرمز السري screen-pin -->
             <div class="hotspot" style="bottom: 15px; left: 5%; width: 90%; height: 55px;" ontouchstart="submitForm(event)" onclick="submitForm(event)"></div>
         </div>
     </div>
@@ -147,13 +146,13 @@
     <!-- 5. شاشة إدخال الرمز السري (PIN Code) -->
     <div id="screen-pin" class="app-screen">
         <div class="screen-container">
-            <!-- استبدل pin-code.png باسم صورتك الفعلية للرمز السري إذا كان مختلفاً -->
-            <img src="pin-code.png" alt="PIN Screen">
+            <!-- تم تعديل اسم الصورة لتطابق اسم screen-pin مع الامتداد -->
+            <img src="screen-pin.png" alt="PIN Screen">
             
             <!-- زر الإغلاق (علامة ×) للرجوع لصفحة الإدخال -->
             <div class="hotspot" style="top: 24%; left: 16%; width: 10%; height: 8%;" ontouchstart="goToScreen('screen-send-form', event)" onclick="goToScreen('screen-send-form', event)"></div>
 
-            <!-- زر "إرسال طلب" الأزرق في نافذة الرمز السري للانتقال لصفحة التأكيد -->
+            <!-- زر "إرسال طلب" الأزرق للانتقال لصفحة التأكيد -->
             <div class="hotspot" style="top: 45%; left: 18%; width: 64%; height: 8%;" ontouchstart="goToScreen('screen-confirm', event)" onclick="goToScreen('screen-confirm', event)"></div>
         </div>
     </div>
@@ -205,7 +204,6 @@
             document.getElementById('display-phone').innerText = phone;
             document.getElementById('display-amount').innerText = "MRU " + amount;
 
-            // الانتقال إلى شاشة الرمز السري بدلاً من التأكيد مباشرة
             goToScreen('screen-pin');
         }
 
