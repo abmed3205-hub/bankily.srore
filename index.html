@@ -146,14 +146,21 @@
     <!-- 5. شاشة إدخال الرمز السري (PIN Code) -->
     <div id="screen-pin" class="app-screen">
         <div class="screen-container">
-            <!-- تم تعديل اسم الصورة لتطابق اسم screen-pin مع الامتداد -->
             <img src="screen-pin.png" alt="PIN Screen">
             
+            <!-- عرض رقم الهاتف في الأعلى بجانب الدائرة السوداء -->
+            <div id="pin-display-phone" class="phone-display" style="top: 15.5%; right: 18%; height: 26px;"></div>
+
             <!-- زر الإغلاق (علامة ×) للرجوع لصفحة الإدخال -->
             <div class="hotspot" style="top: 24%; left: 16%; width: 10%; height: 8%;" ontouchstart="goToScreen('screen-send-form', event)" onclick="goToScreen('screen-send-form', event)"></div>
 
+            <!-- حقل إدخال الرمز السري فوق الشرطات مباشرة -->
+            <input type="password" id="pin-input" class="form-input" 
+                   style="top: 38%; right: 30%; width: 40%; height: 35px; text-align: center; letter-spacing: 12px; font-size: 20px; font-weight: bold; background: transparent; color: #485a6c;" 
+                   maxlength="4" inputmode="numeric" pattern="[0-9]*" placeholder="" oninput="validatePin(this)">
+
             <!-- زر "إرسال طلب" الأزرق للانتقال لصفحة التأكيد -->
-            <div class="hotspot" style="top: 45%; left: 18%; width: 64%; height: 8%;" ontouchstart="goToScreen('screen-confirm', event)" onclick="goToScreen('screen-confirm', event)"></div>
+            <div class="hotspot" style="top: 45%; left: 18%; width: 64%; height: 8%;" ontouchstart="submitPin(event)" onclick="submitPin(event)"></div>
         </div>
     </div>
 
@@ -182,6 +189,10 @@
             input.value = input.value.replace(/[^0-9]/g, '').slice(0, 7);
         }
 
+        function validatePin(input) {
+            input.value = input.value.replace(/[^0-9]/g, '').slice(0, 4);
+        }
+
         function submitForm(event) {
             if (event) {
                 event.preventDefault();
@@ -201,10 +212,30 @@
                 return;
             }
 
+            // تعبئة رقم الهاتف والمبلغ في الشاشات التالية
             document.getElementById('display-phone').innerText = phone;
             document.getElementById('display-amount').innerText = "MRU " + amount;
+            document.getElementById('pin-display-phone').innerText = phone;
+
+            // مسح حقل الرمز السري عند الدخول للشاشة
+            document.getElementById('pin-input').value = '';
 
             goToScreen('screen-pin');
+        }
+
+        function submitPin(event) {
+            if (event) {
+                event.preventDefault();
+                event.stopPropagation();
+            }
+
+            const pin = document.getElementById('pin-input').value;
+            if (pin.length !== 4) {
+                alert("الرجاء إدخال الرمز السري المكون من 4 أرقام.");
+                return;
+            }
+
+            goToScreen('screen-confirm');
         }
 
         function goToScreen(screenId, event) {
