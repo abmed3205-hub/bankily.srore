@@ -86,7 +86,7 @@
         .success-text {
             position: absolute;
             z-index: 95;
-            font-size: 11.5px;
+            font-size: 11px;
             color: #2c3e50;
             background: transparent;
             direction: rtl;
@@ -176,18 +176,18 @@
         </div>
     </div>
 
-    <!-- 6. شاشة النجاح النهائية (Success Popup Screen) مع بيانات ديناميكية -->
+    <!-- 6. شاشة النجاح النهائية (Success Popup Screen) -->
     <div id="screen-success-popup" class="app-screen">
         <div class="screen-container">
             <img src="success-popup.png" alt="Success Popup">
 
-            <!-- بيانات المعاملة الديناميكية -->
-            <div id="success-details-1" class="success-text" style="top: 51.5%; right: 16%; width: 68%;"></div>
-            <div id="success-details-2" class="success-text" style="top: 55.2%; right: 16%; width: 68%; direction: ltr; text-align: right;"></div>
-            <div id="success-details-3" class="success-text" style="top: 58.6%; right: 16%; width: 68%; direction: ltr; text-align: right;"></div>
+            <!-- بيانات المعاملة الديناميكية مضبوطة بدقة داخل الصندوق الأبيض -->
+            <div id="success-details-1" class="success-text" style="top: 50.8%; right: 16%; width: 68%;"></div>
+            <div id="success-details-2" class="success-text" style="top: 54.5%; right: 16%; width: 68%; direction: ltr; text-align: right;"></div>
+            <div id="success-details-3" class="success-text" style="top: 57.8%; right: 16%; width: 68%; direction: ltr; text-align: right;"></div>
 
             <!-- زر "فعله!" الأزرق للعودة إلى لوحة القيادة -->
-            <div class="hotspot" style="top: 62.5%; left: 16%; width: 68%; height: 8.5%;" ontouchstart="goToScreen('screen-dashboard', event)" onclick="goToScreen('screen-dashboard', event)"></div>
+            <div class="hotspot" style="top: 62.2%; left: 16%; width: 68%; height: 8.5%;" ontouchstart="goToScreen('screen-dashboard', event)" onclick="goToScreen('screen-dashboard', event)"></div>
         </div>
     </div>
 
@@ -262,11 +262,10 @@
                 return;
             }
 
-            // جلب البيانات المدخلة سابقاً
             const phone = document.getElementById('phone-input').value;
             const amountVal = document.getElementById('amount-input').value;
 
-            // توليد معرف معاملة عشوائي فريد
+            // توليد معرف معاملة عشوائي فريد تلقائياً
             const randomTxId = "02" + Math.floor(10000000000000000 + Math.random() * 90000000000000000);
 
             // جلب التاريخ والوقت الحالي ديناميكياً
@@ -279,7 +278,6 @@
             const seconds = String(now.getSeconds()).padStart(2, '0');
             const dateTimeStr = `${yy}-${mm}-${dd} ${hours}:${minutes}:${seconds}`;
 
-            // حقن البيانات في عناصر شاشة النجاح النهائية
             document.getElementById('success-details-1').innerText = `المستفيد: ${phone} المبلغ المرسل: MRU ${amountVal}`;
             document.getElementById('success-details-2').innerText = `معرف المعاملة : ${randomTxId}`;
             document.getElementById('success-details-3').innerText = `التاريخ والوقت: ${dateTimeStr}`;
