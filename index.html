@@ -175,18 +175,18 @@
         </div>
     </div>
 
-    <!-- 6. شاشة النجاح النهائية (Success Popup Screen) مرتبة ومنظمة -->
+    <!-- 6. شاشة النجاح النهائية (Success Popup Screen) -->
     <div id="screen-success-popup" class="app-screen">
         <div class="screen-container">
             <img src="success-popup.png" alt="Success Popup">
 
-            <!-- رقم الهاتف بجانب المستفيد (اليمين) -->
-            <div id="success-phone" class="success-val" style="top: 50.8%; right: 18%; direction: ltr;"></div>
+            <!-- رقم الهاتف (مسحوب لليسار ومرفوع للأعلى قليلاً ليقابض النقطتين للمستفيد) -->
+            <div id="success-phone" class="success-val" style="top: 50.4%; right: 21%; direction: ltr;"></div>
 
-            <!-- المبلغ بجانب المبلغ المرسل (اليسار) -->
-            <div id="success-amount" class="success-val" style="top: 50.8%; left: 24%; direction: ltr;"></div>
+            <!-- المبلغ (مسحوب لليسار ومرفوع للأعلى قليلاً) -->
+            <div id="success-amount" class="success-val" style="top: 50.4%; left: 21%; direction: ltr;"></div>
 
-            <!-- التاريخ والوقت بجانب التاريخ والوقت -->
+            <!-- التاريخ والوقت -->
             <div id="success-time" class="success-val" style="top: 57.8%; right: 28%; direction: ltr;"></div>
 
             <!-- زر "فعله!" الأزرق للعودة إلى لوحة القيادة -->
@@ -278,7 +278,7 @@
             const seconds = String(now.getSeconds()).padStart(2, '0');
             const dateTimeStr = `${yy}-${mm}-${dd} ${hours}:${minutes}:${seconds}`;
 
-            // حقن القيم مباشرة في أماكنها الصحيحة
+            // حقن القيم مباشرة في أماكنها الجديدة المضبوطة
             document.getElementById('success-phone').innerText = phone;
             document.getElementById('success-amount').innerText = `MRU ${amountVal}`;
             document.getElementById('success-time').innerText = dateTimeStr;
