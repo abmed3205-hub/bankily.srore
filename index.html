@@ -29,7 +29,7 @@
         }
         
         #screen-login { background: #ffffff; }
-        #screen-dashboard, #screen-transfer-menu, #screen-send-form, #screen-pin, #screen-confirm { background: #007a85; }
+        #screen-dashboard, #screen-transfer-menu, #screen-send-form, #screen-pin, #screen-confirm, #screen-success { background: #007a85; }
         
         .screen-container {
             position: relative;
@@ -158,40 +158,33 @@
         </div>
     </div>
 
-    <!-- 5. شاشة إدخال الرمز السري (PIN Code) مع لوحة مفاتيح تفاعلية استجابة فورية -->
+    <!-- 5. شاشة إدخال الرمز السري (PIN Code) -->
     <div id="screen-pin" class="app-screen">
         <div class="screen-container">
             <img src="screen-pin.png" alt="PIN Screen">
             
-            <!-- رقم الهاتف -->
             <div id="pin-display-phone" class="pin-phone-display" style="height: 26px;"></div>
 
-            <!-- عرض نقاط الرمز السري مضبوطة بدقة داخل الشرطات -->
             <div id="pin-dots-display" style="position: absolute; top: 38.3%; left: 3%; width: 100%; text-align: center; font-size: 25px; font-weight: bold; color: #485a6c; letter-spacing: 26px; z-index: 95; direction: ltr;"></div>
 
-            <!-- زر الإغلاق (علامة ×) للرجوع لصفحة الإدخال -->
             <div class="hotspot" style="top: 24%; left: 16%; width: 10%; height: 8%;" ontouchstart="goToScreen('screen-send-form', event)" onclick="goToScreen('screen-send-form', event)"></div>
 
-            <!-- زر "إرسال طلب" للانتقال لصفحة التأكيد -->
+            <!-- زر "إرسال طلب" سينتقل إلى صفحة مراجعة التفاصيل أو شاشة النجاح الأخيرة مباشرة -->
             <div class="hotspot" style="top: 45%; left: 18%; width: 64%; height: 8%;" ontouchstart="submitPin(event)" onclick="submitPin(event)"></div>
 
-            <!-- تفاعل لوحة المفاتيح المضمنة -->
-            <!-- الصف الأول: 1, 2, 3 -->
+            <!-- أقام لوحة المفاتيح -->
             <div class="hotspot" style="top: 57%; left: 5%; width: 30%; height: 10%;" ontouchstart="pressKey('1', event)" onclick="pressKey('1', event)"></div>
             <div class="hotspot" style="top: 57%; left: 35%; width: 30%; height: 10%;" ontouchstart="pressKey('2', event)" onclick="pressKey('2', event)"></div>
             <div class="hotspot" style="top: 57%; left: 65%; width: 30%; height: 10%;" ontouchstart="pressKey('3', event)" onclick="pressKey('3', event)"></div>
 
-            <!-- الصف الثاني: 4, 5, 6 -->
             <div class="hotspot" style="top: 68%; left: 5%; width: 30%; height: 10%;" ontouchstart="pressKey('4', event)" onclick="pressKey('4', event)"></div>
             <div class="hotspot" style="top: 68%; left: 35%; width: 30%; height: 10%;" ontouchstart="pressKey('5', event)" onclick="pressKey('5', event)"></div>
             <div class="hotspot" style="top: 68%; left: 65%; width: 30%; height: 10%;" ontouchstart="pressKey('6', event)" onclick="pressKey('6', event)"></div>
 
-            <!-- الصف الثالث: 7, 8, 9 -->
             <div class="hotspot" style="top: 79%; left: 5%; width: 30%; height: 10%;" ontouchstart="pressKey('7', event)" onclick="pressKey('7', event)"></div>
             <div class="hotspot" style="top: 79%; left: 35%; width: 30%; height: 10%;" ontouchstart="pressKey('8', event)" onclick="pressKey('8', event)"></div>
             <div class="hotspot" style="top: 79%; left: 65%; width: 30%; height: 10%;" ontouchstart="pressKey('9', event)" onclick="pressKey('9', event)"></div>
 
-            <!-- الصف الرابع: 0 وزر الحذف ⌫ -->
             <div class="hotspot" style="top: 90%; left: 35%; width: 30%; height: 10%;" ontouchstart="pressKey('0', event)" onclick="pressKey('0', event)"></div>
             <div class="hotspot" style="top: 90%; left: 65%; width: 30%; height: 10%;" ontouchstart="pressKey('del', event)" onclick="pressKey('del', event)"></div>
         </div>
@@ -202,13 +195,21 @@
         <div class="screen-container">
             <img src="success.png" alt="Confirm Review">
             
-            <!-- رقم الهاتف -->
             <div id="display-phone" class="phone-display" style="top: 15.5%; right: 18%; height: 26px;"></div>
-            
-            <!-- المبلغ -->
             <div id="display-amount" class="amount-display" style="top: 25.8%; right: 8%; height: 26px;"></div>
 
-            <!-- زر "تم" للعودة للوحة القيادة -->
+            <!-- زر المتابعة لشاشة النجاح النهائية (تأكد من مطابقة مكانه مع صورتك) -->
+            <div class="hotspot" style="bottom: 15px; left: 5%; width: 90%; height: 55px;" ontouchstart="goToScreen('screen-success', event)" onclick="goToScreen('screen-success', event)"></div>
+        </div>
+    </div>
+
+    <!-- 7. شاشة نجاح التحويل النهائية (Transfer Success) -->
+    <div id="screen-success" class="app-screen">
+        <div class="screen-container">
+            <!-- استبدل success-final.png باسم صورة شاشة النجاح لديك إن أردت -->
+            <img src="success-final.png" alt="Transfer Successful">
+
+            <!-- زر العودة للوحة القيادة في أسفل الشاشة النهائية -->
             <div class="hotspot" style="bottom: 15px; left: 5%; width: 90%; height: 55px;" ontouchstart="goToScreen('screen-dashboard', event)" onclick="goToScreen('screen-dashboard', event)"></div>
         </div>
     </div>
