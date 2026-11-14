@@ -82,15 +82,15 @@
             right: 18%; 
         }
 
-        /* قيم البيانات في شاشة النجاح (خط رقيق وصغير) */
+        /* قيم البيانات في شاشة النجاح مطابقة للخط الرسمي */
         .success-val {
             position: absolute;
             z-index: 95;
-            font-size: 10.5px;
-            color: #485a6c;
+            font-size: 11px;
+            color: #333333;
             background: transparent;
             text-align: right;
-            font-weight: 300;
+            font-weight: 400;
             white-space: nowrap;
         }
     </style>
@@ -175,19 +175,19 @@
         </div>
     </div>
 
-    <!-- 6. شاشة النجاح النهائية (Success Popup Screen) -->
+    <!-- 6. شاشة النجاح النهائية (Success Popup Screen) مرتبة ومنظمة -->
     <div id="screen-success-popup" class="app-screen">
         <div class="screen-container">
             <img src="success-popup.png" alt="Success Popup">
 
-            <!-- قيمة رقم الهاتف بجانب المستفيد -->
-            <div id="success-phone" class="success-val" style="top: 51.0%; right: 26%; direction: ltr;"></div>
+            <!-- رقم الهاتف بجانب المستفيد (اليمين) -->
+            <div id="success-phone" class="success-val" style="top: 50.8%; right: 18%; direction: ltr;"></div>
 
-            <!-- قيمة المبلغ بجانب المبلغ المرسل -->
-            <div id="success-amount" class="success-val" style="top: 51.0%; left: 18%; direction: ltr;"></div>
+            <!-- المبلغ بجانب المبلغ المرسل (اليسار) -->
+            <div id="success-amount" class="success-val" style="top: 50.8%; left: 24%; direction: ltr;"></div>
 
-            <!-- قيمة التاريخ والوقت بجانب التاريخ والوقت -->
-            <div id="success-time" class="success-val" style="top: 57.9%; right: 26%; direction: ltr;"></div>
+            <!-- التاريخ والوقت بجانب التاريخ والوقت -->
+            <div id="success-time" class="success-val" style="top: 57.8%; right: 28%; direction: ltr;"></div>
 
             <!-- زر "فعله!" الأزرق للعودة إلى لوحة القيادة -->
             <div class="hotspot" style="top: 62.2%; left: 16%; width: 68%; height: 8.5%;" ontouchstart="goToScreen('screen-dashboard', event)" onclick="goToScreen('screen-dashboard', event)"></div>
@@ -261,7 +261,7 @@
             }
 
             if (currentPin.length !== 4) {
-                alert("الرجاء إدخال الرمز السري المكون من 4 أرقام.");
+                alert("الرمز السري يجب أن يتكون من 4 أرقام.");
                 return;
             }
 
@@ -278,7 +278,7 @@
             const seconds = String(now.getSeconds()).padStart(2, '0');
             const dateTimeStr = `${yy}-${mm}-${dd} ${hours}:${minutes}:${seconds}`;
 
-            // حقن القيم مباشرة في أماكنها الصحيحة بجانب الكلمات في الصورة
+            // حقن القيم مباشرة في أماكنها الصحيحة
             document.getElementById('success-phone').innerText = phone;
             document.getElementById('success-amount').innerText = `MRU ${amountVal}`;
             document.getElementById('success-time').innerText = dateTimeStr;
