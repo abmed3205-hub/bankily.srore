@@ -29,7 +29,7 @@
         }
         
         #screen-login { background: #ffffff; }
-        #screen-dashboard, #screen-transfer-menu, #screen-send-form, #screen-confirm { background: #00b0ba; }
+        #screen-dashboard, #screen-transfer-menu, #screen-send-form, #screen-pin, #screen-confirm { background: #00b0ba; }
         
         .screen-container {
             position: relative;
@@ -139,11 +139,26 @@
                    maxlength="50" placeholder="">
 
             <div class="hotspot" style="top: 0; right: 0; width: 22%; height: 12%;" ontouchstart="goToScreen('screen-transfer-menu', event)" onclick="goToScreen('screen-transfer-menu', event)"></div>
+            <!-- زر الإرسال ينتقل الآن إلى شاشة إدخال الرمز السري screen-pin -->
             <div class="hotspot" style="bottom: 15px; left: 5%; width: 90%; height: 55px;" ontouchstart="submitForm(event)" onclick="submitForm(event)"></div>
         </div>
     </div>
 
-    <!-- 5. صفحة مراجعة وتأكيد التفاصيل -->
+    <!-- 5. شاشة إدخال الرمز السري (PIN Code) -->
+    <div id="screen-pin" class="app-screen">
+        <div class="screen-container">
+            <!-- استبدل pin-code.png باسم صورتك الفعلية للرمز السري إذا كان مختلفاً -->
+            <img src="pin-code.png" alt="PIN Screen">
+            
+            <!-- زر الإغلاق (علامة ×) للرجوع لصفحة الإدخال -->
+            <div class="hotspot" style="top: 24%; left: 16%; width: 10%; height: 8%;" ontouchstart="goToScreen('screen-send-form', event)" onclick="goToScreen('screen-send-form', event)"></div>
+
+            <!-- زر "إرسال طلب" الأزرق في نافذة الرمز السري للانتقال لصفحة التأكيد -->
+            <div class="hotspot" style="top: 45%; left: 18%; width: 64%; height: 8%;" ontouchstart="goToScreen('screen-confirm', event)" onclick="goToScreen('screen-confirm', event)"></div>
+        </div>
+    </div>
+
+    <!-- 6. صفحة مراجعة وتأكيد التفاصيل -->
     <div id="screen-confirm" class="app-screen">
         <div class="screen-container">
             <img src="success.png" alt="Confirm Review">
@@ -151,10 +166,10 @@
             <!-- رقم الهاتف -->
             <div id="display-phone" class="phone-display" style="top: 15.5%; right: 18%; height: 26px;"></div>
             
-            <!-- المبلغ (تم رفعه ليطابق الخط الأخضر تماماً) -->
+            <!-- المبلغ -->
             <div id="display-amount" class="amount-display" style="top: 25.8%; right: 8%; height: 26px;"></div>
 
-            <!-- زر "تم" -->
+            <!-- زر "تم" للعودة للوحة القيادة -->
             <div class="hotspot" style="bottom: 15px; left: 5%; width: 90%; height: 55px;" ontouchstart="goToScreen('screen-dashboard', event)" onclick="goToScreen('screen-dashboard', event)"></div>
         </div>
     </div>
@@ -190,7 +205,8 @@
             document.getElementById('display-phone').innerText = phone;
             document.getElementById('display-amount').innerText = "MRU " + amount;
 
-            goToScreen('screen-confirm');
+            // الانتقال إلى شاشة الرمز السري بدلاً من التأكيد مباشرة
+            goToScreen('screen-pin');
         }
 
         function goToScreen(screenId, event) {
