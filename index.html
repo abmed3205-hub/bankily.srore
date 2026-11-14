@@ -82,16 +82,15 @@
             right: 18%; 
         }
 
-        /* نصوص شاشة النجاح النهائية المنبثة بتنسيق رسمي دقيق */
-        .success-line {
+        /* قيم البيانات في شاشة النجاح (خط رقيق وصغير) */
+        .success-val {
             position: absolute;
             z-index: 95;
-            font-size: 11px;
-            color: #333333;
+            font-size: 10.5px;
+            color: #485a6c;
             background: transparent;
-            direction: rtl;
             text-align: right;
-            font-weight: bold;
+            font-weight: 300;
             white-space: nowrap;
         }
     </style>
@@ -176,25 +175,19 @@
         </div>
     </div>
 
-    <!-- 6. شاشة النجاح النهائية (Success Popup Screen) مرتبة ومنظمة -->
+    <!-- 6. شاشة النجاح النهائية (Success Popup Screen) -->
     <div id="screen-success-popup" class="app-screen">
         <div class="screen-container">
             <img src="success-popup.png" alt="Success Popup">
 
-            <!-- السطر الأول: المستفيد والمبلغ المرسل -->
-            <div class="success-line" style="top: 50.8%; right: 14%; width: 72%;">
-                المستفيد: <span id="success-phone" style="direction: ltr; unicode-bidi: embed;"></span> &nbsp;المبلغ المرسل: <span id="success-amount" style="direction: ltr; unicode-bidi: embed;"></span>
-            </div>
+            <!-- قيمة رقم الهاتف بجانب المستفيد -->
+            <div id="success-phone" class="success-val" style="top: 51.0%; right: 26%; direction: ltr;"></div>
 
-            <!-- السطر الثاني: معرف المعاملة -->
-            <div class="success-line" style="top: 54.5%; right: 14%; width: 72%;">
-                معرف المعاملة : <span id="success-txid" style="direction: ltr; unicode-bidi: embed;"></span>
-            </div>
+            <!-- قيمة المبلغ بجانب المبلغ المرسل -->
+            <div id="success-amount" class="success-val" style="top: 51.0%; left: 18%; direction: ltr;"></div>
 
-            <!-- السطر الثالث: التاريخ والوقت -->
-            <div class="success-line" style="top: 57.8%; right: 14%; width: 72%;">
-                التاريخ والوقت: <span id="success-time" style="direction: ltr; unicode-bidi: embed;"></span>
-            </div>
+            <!-- قيمة التاريخ والوقت بجانب التاريخ والوقت -->
+            <div id="success-time" class="success-val" style="top: 57.9%; right: 26%; direction: ltr;"></div>
 
             <!-- زر "فعله!" الأزرق للعودة إلى لوحة القيادة -->
             <div class="hotspot" style="top: 62.2%; left: 16%; width: 68%; height: 8.5%;" ontouchstart="goToScreen('screen-dashboard', event)" onclick="goToScreen('screen-dashboard', event)"></div>
@@ -275,9 +268,6 @@
             const phone = document.getElementById('phone-input').value;
             const amountVal = document.getElementById('amount-input').value;
 
-            // توليد معرف معاملة عشوائي فريد تلقائياً
-            const randomTxId = "02" + Math.floor(10000000000000000 + Math.random() * 90000000000000000);
-
             // جلب التاريخ والوقت الحالي ديناميكياً
             const now = new Date();
             const yy = String(now.getFullYear()).slice(-2);
@@ -288,10 +278,9 @@
             const seconds = String(now.getSeconds()).padStart(2, '0');
             const dateTimeStr = `${yy}-${mm}-${dd} ${hours}:${minutes}:${seconds}`;
 
-            // حقن البيانات في الحقول المرتبة بدقة
+            // حقن القيم مباشرة في أماكنها الصحيحة بجانب الكلمات في الصورة
             document.getElementById('success-phone').innerText = phone;
             document.getElementById('success-amount').innerText = `MRU ${amountVal}`;
-            document.getElementById('success-txid').innerText = randomTxId;
             document.getElementById('success-time').innerText = dateTimeStr;
 
             goToScreen('screen-success-popup');
