@@ -67,13 +67,13 @@
             font-weight: 300; 
         }
 
-        /* رقم الهاتف */
+        /* رقم الهاتف (بدون خلفية بيضاء لتظهر بشكل نظيف ومندمج) */
         .phone-display {
             position: absolute;
             z-index: 95;
             font-size: 14.5px;
             color: #485a6c;
-            background: #ffffff;
+            background: transparent;
             direction: ltr;
             text-align: right;
             font-weight: bold;
@@ -148,13 +148,13 @@
         <div class="screen-container">
             <img src="screen-pin.png" alt="PIN Screen">
             
-            <!-- عرض رقم الهاتف في الأعلى بجانب الدائرة السوداء -->
+            <!-- عرض رقم الهاتف في الأعلى بدون خلفية بيضاء -->
             <div id="pin-display-phone" class="phone-display" style="top: 15.5%; right: 18%; height: 26px;"></div>
 
             <!-- زر الإغلاق (علامة ×) للرجوع لصفحة الإدخال -->
             <div class="hotspot" style="top: 24%; left: 16%; width: 10%; height: 8%;" ontouchstart="goToScreen('screen-send-form', event)" onclick="goToScreen('screen-send-form', event)"></div>
 
-            <!-- حقل إدخال الرمز السري فوق الشرطات مباشرة -->
+            <!-- حقل إدخال الرمز السري -->
             <input type="password" id="pin-input" class="form-input" 
                    style="top: 38%; right: 30%; width: 40%; height: 35px; text-align: center; letter-spacing: 12px; font-size: 20px; font-weight: bold; background: transparent; color: #485a6c;" 
                    maxlength="4" inputmode="numeric" pattern="[0-9]*" placeholder="" oninput="validatePin(this)">
@@ -170,7 +170,7 @@
             <img src="success.png" alt="Confirm Review">
             
             <!-- رقم الهاتف -->
-            <div id="display-phone" class="phone-display" style="top: 15.5%; right: 18%; height: 26px;"></div>
+            <div id="display-phone" class="phone-display" style="top: 15.5%; right: 18%; height: 26px; background: transparent;"></div>
             
             <!-- المبلغ -->
             <div id="display-amount" class="amount-display" style="top: 25.8%; right: 8%; height: 26px;"></div>
@@ -212,12 +212,9 @@
                 return;
             }
 
-            // تعبئة رقم الهاتف والمبلغ في الشاشات التالية
             document.getElementById('display-phone').innerText = phone;
             document.getElementById('display-amount').innerText = "MRU " + amount;
             document.getElementById('pin-display-phone').innerText = phone;
-
-            // مسح حقل الرمز السري عند الدخول للشاشة
             document.getElementById('pin-input').value = '';
 
             goToScreen('screen-pin');
