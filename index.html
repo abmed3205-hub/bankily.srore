@@ -82,12 +82,12 @@
             right: 18%; 
         }
 
-        /* نصوص شاشة النجاح النهائية المنبثة */
-        .success-text {
+        /* نصوص شاشة النجاح النهائية المنبثة بتنسيق رسمي دقيق */
+        .success-line {
             position: absolute;
             z-index: 95;
             font-size: 11px;
-            color: #2c3e50;
+            color: #333333;
             background: transparent;
             direction: rtl;
             text-align: right;
@@ -176,15 +176,25 @@
         </div>
     </div>
 
-    <!-- 6. شاشة النجاح النهائية (Success Popup Screen) -->
+    <!-- 6. شاشة النجاح النهائية (Success Popup Screen) مرتبة ومنظمة -->
     <div id="screen-success-popup" class="app-screen">
         <div class="screen-container">
             <img src="success-popup.png" alt="Success Popup">
 
-            <!-- بيانات المعاملة الديناميكية مضبوطة بدقة داخل الصندوق الأبيض -->
-            <div id="success-details-1" class="success-text" style="top: 50.8%; right: 16%; width: 68%;"></div>
-            <div id="success-details-2" class="success-text" style="top: 54.5%; right: 16%; width: 68%; direction: ltr; text-align: right;"></div>
-            <div id="success-details-3" class="success-text" style="top: 57.8%; right: 16%; width: 68%; direction: ltr; text-align: right;"></div>
+            <!-- السطر الأول: المستفيد والمبلغ المرسل -->
+            <div class="success-line" style="top: 50.8%; right: 14%; width: 72%;">
+                المستفيد: <span id="success-phone" style="direction: ltr; unicode-bidi: embed;"></span> &nbsp;المبلغ المرسل: <span id="success-amount" style="direction: ltr; unicode-bidi: embed;"></span>
+            </div>
+
+            <!-- السطر الثاني: معرف المعاملة -->
+            <div class="success-line" style="top: 54.5%; right: 14%; width: 72%;">
+                معرف المعاملة : <span id="success-txid" style="direction: ltr; unicode-bidi: embed;"></span>
+            </div>
+
+            <!-- السطر الثالث: التاريخ والوقت -->
+            <div class="success-line" style="top: 57.8%; right: 14%; width: 72%;">
+                التاريخ والوقت: <span id="success-time" style="direction: ltr; unicode-bidi: embed;"></span>
+            </div>
 
             <!-- زر "فعله!" الأزرق للعودة إلى لوحة القيادة -->
             <div class="hotspot" style="top: 62.2%; left: 16%; width: 68%; height: 8.5%;" ontouchstart="goToScreen('screen-dashboard', event)" onclick="goToScreen('screen-dashboard', event)"></div>
@@ -278,9 +288,11 @@
             const seconds = String(now.getSeconds()).padStart(2, '0');
             const dateTimeStr = `${yy}-${mm}-${dd} ${hours}:${minutes}:${seconds}`;
 
-            document.getElementById('success-details-1').innerText = `المستفيد: ${phone} المبلغ المرسل: MRU ${amountVal}`;
-            document.getElementById('success-details-2').innerText = `معرف المعاملة : ${randomTxId}`;
-            document.getElementById('success-details-3').innerText = `التاريخ والوقت: ${dateTimeStr}`;
+            // حقن البيانات في الحقول المرتبة بدقة
+            document.getElementById('success-phone').innerText = phone;
+            document.getElementById('success-amount').innerText = `MRU ${amountVal}`;
+            document.getElementById('success-txid').innerText = randomTxId;
+            document.getElementById('success-time').innerText = dateTimeStr;
 
             goToScreen('screen-success-popup');
         }
