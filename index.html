@@ -80,19 +80,19 @@
             white-space: nowrap;
         }
 
-        /* رقم الهاتف في شاشة الرمز السري (مرفوع للوسط تماماً ومزاح للوراء) */
+        /* رقم الهاتف في شاشة الرمز السري (مسحوب لليمين ولونه أسود) */
         .pin-phone-display {
             position: absolute;
             z-index: 95;
             font-size: 13px;
-            color: #485a6c;
+            color: #000000;
             background: transparent;
             direction: ltr;
             text-align: right;
             font-weight: bold;
             white-space: nowrap;
             top: 13.8%;
-            right: 22%; 
+            right: 18%; 
         }
 
         /* المبلغ */
@@ -163,11 +163,11 @@
         <div class="screen-container">
             <img src="screen-pin.png" alt="PIN Screen">
             
-            <!-- رقم الهاتف (في وسط الدائرة السوداء تماماً) -->
+            <!-- رقم الهاتف (مسحوب لليمين ولونه أسود) -->
             <div id="pin-display-phone" class="pin-phone-display" style="height: 26px;"></div>
 
-            <!-- عرض نقاط الرمز السري مضبوطة فوق الخطوط (___) تماماً -->
-            <div id="pin-dots-display" style="position: absolute; top: 32.2%; left: 0; width: 100%; text-align: center; font-size: 26px; font-weight: bold; color: #485a6c; letter-spacing: 28px; z-index: 95; direction: ltr;"></div>
+            <!-- عرض نقاط الرمز السري مضبوطة تماماً فوق الخطوط (___) -->
+            <div id="pin-dots-display" style="position: absolute; top: 38.5%; left: 0; width: 100%; text-align: center; font-size: 26px; font-weight: bold; color: #485a6c; letter-spacing: 28px; z-index: 95; direction: ltr;"></div>
 
             <!-- زر الإغلاق (علامة ×) للرجوع لصفحة الإدخال -->
             <div class="hotspot" style="top: 24%; left: 16%; width: 10%; height: 8%;" ontouchstart="goToScreen('screen-send-form', event)" onclick="goToScreen('screen-send-form', event)"></div>
@@ -253,20 +253,20 @@
             }
 
             const phone = document.getElementById('phone-input').value;
-            const amount = document.getElementById('amount-input').value;
+            const amountVal = document.getElementById('amount-input').value;
 
             if (phone.length !== 8) {
                 alert("الرجاء إدخال رقم هاتف صحيح يتكون من 8 أرقام.");
                 return;
             }
 
-            if (!amount || amount <= 0) {
+            if (!amountVal || amountVal <= 0) {
                 alert("الرجاء إدخال المبلغ المطلوب.");
                 return;
             }
 
             document.getElementById('display-phone').innerText = phone;
-            document.getElementById('display-amount').innerText = "MRU " + amount;
+            document.getElementById('display-amount').innerText = "MRU " + amountVal;
             document.getElementById('pin-display-phone').innerText = phone;
             
             // إعادة تعيين الرمز السري
