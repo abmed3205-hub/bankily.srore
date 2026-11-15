@@ -81,18 +81,6 @@
             top: 13.8%;
             right: 18%; 
         }
-
-        /* التاريخ والوقت في شاشة النجاح */
-        .success-time-val {
-            position: absolute;
-            z-index: 95;
-            font-size: 11px;
-            color: #333333;
-            background: transparent;
-            width: 100%;
-            text-align: center;
-            direction: ltr;
-        }
     </style>
 </head>
 <body>
@@ -180,14 +168,16 @@
         <div class="screen-container">
             <img src="transfer-success.png" alt="Transfer Success">
 
-            <!-- سطر موحد للمبلغ (يسار) ورقم المستفيد (يمين) باستخدام Flexbox لمنع أي تبديل نهائياً -->
-            <div style="position: absolute; top: 47.6%; left: 12%; right: 12%; display: flex; justify-content: space-between; align-items: center; z-index: 95; font-size: 11px; color: #333333; direction: ltr;">
-                <span id="success-amount" style="font-weight: 400;"></span>
-                <span id="success-phone" style="font-weight: 400;"></span>
+            <!-- سطر المستفيد والمبلغ بشكل أفقي متطابق تماماً مع الكلمات المطبوعة في الصورة -->
+            <div style="position: absolute; top: 47.5%; left: 10%; right: 10%; display: flex; justify-content: space-between; align-items: center; z-index: 95; font-size: 11px; color: #333333; direction: rtl;">
+                <!-- اليمين: رقم المستفيد بجانب كلمة المستفيد مباشرة -->
+                <span id="success-phone" style="font-weight: 400; direction: ltr;"></span>
+                <!-- اليسار: رقم المبلغ فقط بدون كلمة MRU بجانب كلمة المبلغ المرسل مباشرة -->
+                <span id="success-amount" style="font-weight: 400; direction: ltr;"></span>
             </div>
 
-            <!-- التاريخ والوقت (في المنتصف تماماً) -->
-            <div id="success-time" class="success-time-val" style="top: 57.8%;"></div>
+            <!-- التاريخ والوقت (مرفوع للأعلى ليقابل مكان الكلمة في الصورة بدقة) -->
+            <div id="success-time" style="position: absolute; top: 56.5%; left: 22%; right: auto; z-index: 95; font-size: 11px; color: #333333; direction: ltr; text-align: right;"></div>
 
             <!-- زر العودة إلى لوحة القيادة -->
             <div class="hotspot" style="top: 62.2%; left: 16%; width: 68%; height: 8.5%;" ontouchstart="goToScreen('screen-dashboard', event)" onclick="goToScreen('screen-dashboard', event)"></div>
@@ -278,9 +268,9 @@
             const seconds = String(now.getSeconds()).padStart(2, '0');
             const dateTimeStr = `${yy}-${mm}-${dd} ${hours}:${minutes}:${seconds}`;
 
-            // حقن المبلغ في اليسار ورقم الهاتف في اليمين بدقة مطلقة
-            document.getElementById('success-amount').innerText = amountVal;
+            // حقن البيانات بالترتيب الصحيح (الهاتف يمين بجانب المستفيد، المبلغ يسار بجانب المبلغ المرسل، التاريخ للأعلى)
             document.getElementById('success-phone').innerText = phone;
+            document.getElementById('success-amount').innerText = amountVal;
             document.getElementById('success-time').innerText = dateTimeStr;
 
             goToScreen('screen-success-popup');
