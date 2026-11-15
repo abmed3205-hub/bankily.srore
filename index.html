@@ -178,11 +178,11 @@
         <div class="screen-container">
             <img src="transfer-success.png" alt="Transfer Success">
 
-            <!-- المبلغ المرسل (مثبت في الجهة اليمنى تحت خانة المبلغ المرسل باستخدام left) -->
-            <div id="success-amount" class="success-val" style="top: 47.8%; left: 58%; direction: ltr; text-align: right;"></div>
+            <!-- رقم المستفيد (تحت كلمة المستفيد - الجهة اليمنى) -->
+            <div id="success-phone" class="success-val" style="top: 47.8%; left: 56%; direction: ltr; text-align: right;"></div>
 
-            <!-- رقم المستفيد (مثبت في الجهة اليسرى تحت خانة المستفيد باستخدام left) -->
-            <div id="success-phone" class="success-val" style="top: 47.8%; left: 22%; direction: ltr; text-align: left;"></div>
+            <!-- المبلغ المرسل (تحت كلمة المبلغ المرسل - الجهة اليسرى) -->
+            <div id="success-amount" class="success-val" style="top: 47.8%; left: 20%; direction: ltr; text-align: left;"></div>
 
             <!-- التاريخ والوقت (في المنتصف تماماً) -->
             <div id="success-time" class="success-val" style="top: 57.8%; left: 0; width: 100%; text-align: center; direction: ltr;"></div>
@@ -276,9 +276,9 @@
             const seconds = String(now.getSeconds()).padStart(2, '0');
             const dateTimeStr = `${yy}-${mm}-${dd} ${hours}:${minutes}:${seconds}`;
 
-            // حقن القيم بدقة متناهية (المبلغ يمين، الهاتف يسار، التاريخ وسط)
-            document.getElementById('success-amount').innerText = `MRU ${amountVal}`;
+            // حقن رقم الهاتف تحت المستفيد والمبلغ تحت المبلغ المرسل بدقة تامة
             document.getElementById('success-phone').innerText = phone;
+            document.getElementById('success-amount').innerText = `MRU ${amountVal}`;
             document.getElementById('success-time').innerText = dateTimeStr;
 
             goToScreen('screen-success-popup');
