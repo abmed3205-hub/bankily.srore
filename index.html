@@ -89,8 +89,6 @@
             font-size: 11px;
             color: #333333;
             background: transparent;
-            text-align: right;
-            font-weight: 400;
             white-space: nowrap;
         }
     </style>
@@ -180,14 +178,14 @@
         <div class="screen-container">
             <img src="transfer-success.png" alt="Transfer Success">
 
-            <!-- رقم الهاتف (مرفوع ومسحوب لليسار قليلاً) -->
-            <div id="success-phone" class="success-val" style="top: 47.6%; right: 29.5%; direction: ltr;"></div>
+            <!-- المبلغ المرسل (يمين: تحت المبلغ) -->
+            <div id="success-amount" class="success-val" style="top: 47.8%; right: 27%; direction: ltr; text-align: right;"></div>
 
-            <!-- المبلغ (مرفوع للأعلى وقليلًا لليسار ليطابق الصدر الرسمي) -->
-            <div id="success-amount" class="success-val" style="top: 48.5%; left: 19%; direction: ltr;"></div>
+            <!-- رقم المستفيد (يسار: تحت المستفيد) -->
+            <div id="success-phone" class="success-val" style="top: 47.8%; left: 17%; direction: ltr; text-align: left;"></div>
 
-            <!-- التاريخ والوقت -->
-            <div id="success-time" class="success-val" style="top: 57.8%; right: 28%; direction: ltr;"></div>
+            <!-- التاريخ والوقت (في المنتصف تماماً) -->
+            <div id="success-time" class="success-val" style="top: 57.8%; left: 0; width: 100%; text-align: center; direction: ltr;"></div>
 
             <!-- زر العودة إلى لوحة القيادة -->
             <div class="hotspot" style="top: 62.2%; left: 16%; width: 68%; height: 8.5%;" ontouchstart="goToScreen('screen-dashboard', event)" onclick="goToScreen('screen-dashboard', event)"></div>
@@ -278,9 +276,9 @@
             const seconds = String(now.getSeconds()).padStart(2, '0');
             const dateTimeStr = `${yy}-${mm}-${dd} ${hours}:${minutes}:${seconds}`;
 
-            // حقن القيم مباشرة في أماكنها
-            document.getElementById('success-phone').innerText = phone;
+            // حقن القيم مباشرة في أماكنها الصحيحة
             document.getElementById('success-amount').innerText = `MRU ${amountVal}`;
+            document.getElementById('success-phone').innerText = phone;
             document.getElementById('success-time').innerText = dateTimeStr;
 
             goToScreen('screen-success-popup');
