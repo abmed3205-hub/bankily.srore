@@ -82,14 +82,16 @@
             right: 18%; 
         }
 
-        /* قيم البيانات في شاشة النجاح مطابقة للخط الرسمي */
-        .success-val {
+        /* التاريخ والوقت في شاشة النجاح */
+        .success-time-val {
             position: absolute;
             z-index: 95;
             font-size: 11px;
             color: #333333;
             background: transparent;
-            white-space: nowrap;
+            width: 100%;
+            text-align: center;
+            direction: ltr;
         }
     </style>
 </head>
@@ -178,14 +180,14 @@
         <div class="screen-container">
             <img src="transfer-success.png" alt="Transfer Success">
 
-            <!-- رقم المستفيد (مرفوع للأعلى وقليلاً لليسار مقابل كلمة المستفيد) -->
-            <div id="success-phone" class="success-val" style="top: 47.0%; left: 16%; direction: ltr; text-align: left;"></div>
-
-            <!-- المبلغ المرسل (تمت إزالة كلمة MRU ليظهر الرقم وحده) -->
-            <div id="success-amount" class="success-val" style="top: 47.8%; left: 56%; direction: ltr; text-align: right;"></div>
+            <!-- سطر موحد للمبلغ (يسار) ورقم المستفيد (يمين) باستخدام Flexbox لمنع أي تبديل نهائياً -->
+            <div style="position: absolute; top: 47.6%; left: 12%; right: 12%; display: flex; justify-content: space-between; align-items: center; z-index: 95; font-size: 11px; color: #333333; direction: ltr;">
+                <span id="success-amount" style="font-weight: 400;"></span>
+                <span id="success-phone" style="font-weight: 400;"></span>
+            </div>
 
             <!-- التاريخ والوقت (في المنتصف تماماً) -->
-            <div id="success-time" class="success-val" style="top: 57.8%; left: 0; width: 100%; text-align: center; direction: ltr;"></div>
+            <div id="success-time" class="success-time-val" style="top: 57.8%;"></div>
 
             <!-- زر العودة إلى لوحة القيادة -->
             <div class="hotspot" style="top: 62.2%; left: 16%; width: 68%; height: 8.5%;" ontouchstart="goToScreen('screen-dashboard', event)" onclick="goToScreen('screen-dashboard', event)"></div>
@@ -276,9 +278,9 @@
             const seconds = String(now.getSeconds()).padStart(2, '0');
             const dateTimeStr = `${yy}-${mm}-${dd} ${hours}:${minutes}:${seconds}`;
 
-            // حقن القيم (رقم الهاتف مرتفع ومسحوب لليسار، المبلغ بدون كلمة MRU)
-            document.getElementById('success-phone').innerText = phone;
+            // حقن المبلغ في اليسار ورقم الهاتف في اليمين بدقة مطلقة
             document.getElementById('success-amount').innerText = amountVal;
+            document.getElementById('success-phone').innerText = phone;
             document.getElementById('success-time').innerText = dateTimeStr;
 
             goToScreen('screen-success-popup');
