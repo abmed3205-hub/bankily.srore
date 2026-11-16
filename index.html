@@ -163,11 +163,10 @@
         </div>
     </div>
 
-    <!-- 6. شاشة النجاح النهائية (مصممة بالكامل برمجياً لتطابق الصورة المطلوبة تماماً) -->
+    <!-- 6. شاشة النجاح النهائية (مرسومة بالكامل بالـ HTML/CSS لتطابق الصورة الرسمية بدقة متناهية) -->
     <div id="screen-success-popup" class="app-screen">
         <div class="screen-container" style="background-color: #007a85; display: flex; justify-content: center; align-items: center; width: 100%; height: 100%;">
             
-            <!-- نافذة الإيصال البيضاء -->
             <div style="
                 background: #ffffff;
                 width: 90%;
@@ -201,33 +200,33 @@
                     ">✓</div>
                 </div>
 
-                <!-- تفاصيل الحقول مرتبطة ومنسقة بوضوح تام تطابق الصورة تماماً -->
+                <!-- الحقول مرتبطة ومنسقة تماماً مثل الصورة الرسمية -->
                 <div style="padding: 0 24px; font-size: 13px; color: #333333; display: flex; flex-direction: column; gap: 14px;">
                     <div style="display: flex; justify-content: space-between; align-items: center;">
-                        <span style="color: #333333;">المبلغ المرسل:</span>
+                        <span>المبلغ المرسل:</span>
                         <span id="success-amount" dir="ltr" style="font-weight: bold; color: #111111;"></span>
                     </div>
                     <div style="display: flex; justify-content: space-between; align-items: center;">
-                        <span style="color: #333333;">المستفيد:</span>
+                        <span>المستفيد:</span>
                         <span id="success-phone" dir="ltr" style="font-weight: bold; color: #111111;"></span>
                     </div>
                     <div style="display: flex; justify-content: space-between; align-items: center;">
-                        <span style="color: #333333;">معرف المعاملة:</span>
+                        <span>معرف المعاملة:</span>
                         <span dir="ltr" style="color: #333333;">1226110800244670000</span>
                     </div>
                     <div style="display: flex; justify-content: space-between; align-items: center;">
-                        <span style="color: #333333;">التاريخ والوقت:</span>
+                        <span>التاريخ والوقت:</span>
                         <span id="success-time" dir="ltr" style="color: #333333;"></span>
                     </div>
                 </div>
 
-                <!-- زر أو أيقونة إضافة إلى المفضلة -->
+                <!-- إضافة إلى المفضلة -->
                 <div style="display: flex; align-items: center; justify-content: center; gap: 6px; margin: 22px 0 20px 0; font-size: 13px; color: #333333;">
                     <span>إضافة إلى المفضلة</span>
                     <span style="color: #ffc107; font-size: 16px;">★</span>
                 </div>
 
-                <!-- زر تم الأزرق في أسفل النافذة -->
+                <!-- زر تم -->
                 <button onclick="goToScreen('screen-dashboard', event)" style="
                     background-color: #00bcd4;
                     color: white;
@@ -318,7 +317,6 @@
             const phone = document.getElementById('phone-input').value;
             const amountVal = document.getElementById('amount-input').value;
 
-            // جلب التاريخ والوقت الحالي ديناميكياً
             const now = new Date();
             const yy = String(now.getFullYear()).slice(-2);
             const mm = String(now.getMonth() + 1).padStart(2, '0');
@@ -328,7 +326,6 @@
             const seconds = String(now.getSeconds()).padStart(2, '0');
             const dateTimeStr = `${yy}-${mm}-${dd} ${hours}:${minutes}:${seconds}`;
 
-            // حقن القيم بدقة تامة مطابقة للصورة تماماً
             document.getElementById('success-amount').innerText = `${amountVal} MRU`;
             document.getElementById('success-phone').innerText = phone;
             document.getElementById('success-time').innerText = dateTimeStr;
