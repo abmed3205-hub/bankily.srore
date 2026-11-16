@@ -180,11 +180,11 @@
         <div class="screen-container">
             <img src="transfer-success.png" alt="Transfer Success">
 
-            <!-- بيانات المبلغ المرسل والمستفيد بترتيب عمودي صحيح ومتناسق -->
+            <!-- ترتيب المبلغ والمستفيد حسب معايير التنسيق الدقيقة -->
             <div dir="rtl" style="
                 position: absolute;
-                top: 45.5%;
-                right: 25%;
+                top: 45.2%;
+                right: 22%;
                 z-index: 95;
                 direction: rtl;
                 font-size: 11px;
@@ -193,12 +193,8 @@
                 line-height: 1.8;
                 white-space: nowrap;
             ">
-                <div style="margin-bottom: 4px;">
-                    <span>المبلغ المرسل: </span><span id="success-amount" style="direction: ltr; display: inline-block; font-weight: bold;"></span>
-                </div>
-                <div>
-                    <span>المستفيد: </span><span id="success-phone" style="direction: ltr; display: inline-block; font-weight: bold;"></span>
-                </div>
+                <p style="margin-bottom: 4px;">المبلغ المرسل : <span id="success-amount" dir="ltr" style="font-weight: bold; display: inline-block;"></span></p>
+                <p>المستفيد : <span id="success-phone" dir="ltr" style="font-weight: bold; display: inline-block;"></span></p>
             </div>
 
             <!-- التاريخ والوقت -->
@@ -293,7 +289,7 @@
             const seconds = String(now.getSeconds()).padStart(2, '0');
             const dateTimeStr = `${yy}-${mm}-${dd} ${hours}:${minutes}:${seconds}`;
 
-            // حقن القيم بدقة (المبلغ مع العملة والمستفيد في أسطر منفصلة بجانب العبارات)
+            // حقن القيم بالترتيب المطلوب
             document.getElementById('success-amount').innerText = `${amountVal} MRU`;
             document.getElementById('success-phone').innerText = phone;
             document.getElementById('success-time').innerText = dateTimeStr;
